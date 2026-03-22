@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiuZD Lab Variant Dashboard Mock</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <img src="assets/app-logo-placeholder.svg" alt="Application logo placeholder">
+        <div class="search-wrap">
+          <input id="gene-search" type="text" placeholder="Gene or Variant" aria-label="Search gene or variant">
+          <span class="search-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm9 16-3.8-3.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div class="center-nav">
+        <div class="pill-group" role="tablist" aria-label="View toggles">
+          <button class="pill is-active" data-view="home">Home</button>
+          <button class="pill" data-view="blacklist">Blacklist</button>
+          <button class="pill" data-view="whitelist">Whitelist</button>
+        </div>
+      </div>
+      <div class="org-logos">
+        <img src="assets/bcm-placeholder.svg" alt="Baylor logo placeholder">
+        <img src="assets/tch-placeholder.svg" alt="Texas Children's Hospital logo placeholder">
+      </div>
+    </header>
+
+    <section class="dashboard">
+      <div class="column">
+        <article class="card table-card genes-card">
+          <div class="table-inner">
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="primary" style="width:8%"><span class="th-main">GENES</span></th>
+                    <th style="width:6%"><span class="th-main">RANK</span></th>
+                    <th style="width:13%"><span class="th-main">SYNONYMS</span></th>
+                    <th style="width:14%"><span class="th-main">ENSEMBL</span></th>
+                    <th style="width:7%"><span class="th-main">NCBI</span></th>
+                    <th style="width:16%"><span class="th-main">SYNONYMOUS</span><span class="th-sub">EXP/OBS/Z/O/E</span></th>
+                    <th style="width:16%"><span class="th-main">MISSENSE</span><span class="th-sub">EXP/OBS/Z/O/E</span></th>
+                    <th style="width:14%"><span class="th-main">LOF</span><span class="th-sub">EXP/OBS/P/LI/O/E</span></th>
+                  </tr>
+                </thead>
+                <tbody id="genes-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div id="genes-count">Showing 1 to 10 of 60 genes</div>
+            <div id="genes-pagination" class="pagination" aria-label="Genes pagination"></div>
+          </div>
+        </article>
+
+        <article class="card table-card variants-card">
+          <div class="table-inner">
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th class="primary" style="width:19%"><span class="th-main">VARIANTS</span></th>
+                    <th style="width:16%"><span class="th-main">TRANSCRIPT</span></th>
+                    <th style="width:31%"><span class="th-main">HGVSC</span></th>
+                    <th style="width:15%"><span class="th-main">EFFECT</span></th>
+                    <th style="width:10%"><span class="th-main">CLINVAR</span></th>
+                    <th style="width:9%"><span class="th-main">GNOMAD</span></th>
+                  </tr>
+                </thead>
+                <tbody id="variants-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div id="variants-count">Showing 1 to 5 of 342 variants</div>
+            <div id="variants-pagination" class="pagination" aria-label="Variants pagination"></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="column">
+        <article class="card phenotype-card">
+          <div class="phenotype-top">
+            <div class="icon-carousel-wrap">
+              <button id="carousel-prev" class="carousel-nav" aria-label="Previous phenotype icons">‹</button>
+              <div class="carousel-window">
+                <div id="phenotype-track" class="carousel-track"></div>
+              </div>
+              <button id="carousel-next" class="carousel-nav" aria-label="Next phenotype icons">›</button>
+            </div>
+            <img class="hpo-logo" src="assets/hpo-placeholder.svg" alt="HPO logo placeholder">
+          </div>
+
+          <div class="phenotype-body">
+            <div class="phenotype-half">
+              <table class="mini-table">
+                <thead>
+                  <tr>
+                    <th style="width:57%">OMIM PHENOTYPE</th>
+                    <th style="width:18%">INHERITANCE</th>
+                    <th style="width:15%">MATCH</th>
+                  </tr>
+                </thead>
+                <tbody id="omim-tbody"></tbody>
+              </table>
+            </div>
+            <div class="phenotype-half">
+              <table class="mini-table">
+                <thead>
+                  <tr>
+                    <th style="width:36%">HPO</th>
+                    <th>NAME</th>
+                  </tr>
+                </thead>
+                <tbody id="hpo-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <div class="family-row">
+          <article class="card split-card family-card">
+            <div class="card-title">FAMILY</div>
+            <table class="compact-table mini-table">
+              <thead>
+                <tr>
+                  <th style="width:44%">STATUS</th>
+                  <th style="width:8%">GT</th>
+                  <th style="width:10%">VAF</th>
+                  <th style="width:10%">COV</th>
+                  <th style="width:10%">QUAL</th>
+                </tr>
+              </thead>
+              <tbody id="family-tbody"></tbody>
+            </table>
+          </article>
+
+          <article class="card split-card cohort-card">
+            <div class="card-title">COHORT</div>
+            <table class="compact-table mini-table">
+              <thead>
+                <tr>
+                  <th style="width:42%">SAMPLE ID</th>
+                  <th style="width:24%">GENOTYPE</th>
+                  <th>FREQUENCY</th>
+                </tr>
+              </thead>
+              <tbody id="cohort-tbody"></tbody>
+            </table>
+          </article>
+        </div>
+
+        <article class="card predictions-card">
+          <div class="predictions-wrap">
+            <div class="predictions-head">
+              <div class="card-title">PREDICTIONS</div>
+              <div id="prediction-grid" class="prediction-grid"></div>
+            </div>
+            <div id="prediction-detail" class="prediction-detail"></div>
+            <div id="prediction-tabs" class="tab-list"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="132" height="72" viewBox="0 0 132 72">
+  <rect width="132" height="72" rx="8" fill="#ffffff"/>
+  <g transform="translate(74 12)">
+    <path d="M18 0 l4 4 -4 4 -4 -4z M24 6 l4 4 -4 4 -4 -4z M30 12 l4 4 -4 4 -4 -4z M24 18 l4 4 -4 4 -4 -4z M18 24 l4 4 -4 4 -4 -4z" fill="#eb2930"/>
+  </g>
+  <text x="42" y="28" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#111">Texas Children’s</text>
+  <text x="42" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#111">Hospital</text>
+</svg>

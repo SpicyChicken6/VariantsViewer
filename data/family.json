@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "status": "Proband",
+      "badge": {
+        "text": "De Novo",
+        "tone": "rose"
+      },
+      "gt": "0/1",
+      "vaf": "0.52",
+      "cov": "98",
+      "qual": "85"
+    },
+    {
+      "status": "Paternal",
+      "badge": {
+        "text": "Carrier",
+        "tone": "amber"
+      },
+      "gt": "0/1",
+      "vaf": "0.48",
+      "cov": "125",
+      "qual": "99"
+    },
+    {
+      "status": "Maternal",
+      "badge": {
+        "text": "Reference",
+        "tone": "blue"
+      },
+      "gt": "0/0",
+      "vaf": "0.00",
+      "cov": "110",
+      "qual": "100"
+    }
+  ]
+}

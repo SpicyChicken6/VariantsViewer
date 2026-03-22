@@ -1,0 +1,98 @@
+{
+  "tabs": [
+    {
+      "id": "prediction",
+      "label": "PREDICTION",
+      "metrics": [
+        {
+          "label": "CADD PHRED",
+          "value": "27.4",
+          "tone": "danger"
+        },
+        {
+          "label": "REVEL",
+          "value": "0.2250",
+          "tone": "default"
+        },
+        {
+          "label": "MUTATIONTASTER",
+          "value": "DISEASE CAUSING",
+          "tone": "danger"
+        },
+        {
+          "label": "MUTATIONASSESSOR",
+          "value": "Low (Non-Functional)",
+          "tone": "default"
+        },
+        {
+          "label": "DANN",
+          "value": "0.9940",
+          "tone": "danger"
+        },
+        {
+          "label": "ALPHAMISSENSE",
+          "value": "Likely Pathogenic",
+          "tone": "danger"
+        },
+        {
+          "label": "GERP++",
+          "value": "5.28",
+          "tone": "default",
+          "group": "Conservation Scores"
+        },
+        {
+          "label": "PHYLOP",
+          "value": "2.841",
+          "tone": "default",
+          "group": "Conservation Scores"
+        }
+      ],
+      "detailTitle": "Variant interpretation summary",
+      "detailText": "This mock detail panel is intentionally minimal to preserve the open whitespace and card balance of the reference design. Swap in your own prediction narratives, ACMG notes, or embedded widgets here later."
+    },
+    {
+      "id": "acmg",
+      "label": "ACMG",
+      "headline": "ACMG evidence",
+      "items": [
+        "PVS1: predicted null variant in a gene where loss of function is a known disease mechanism.",
+        "PS2: de novo occurrence in the proband with no evidence of parental transmission.",
+        "PM2: absent or extremely rare in population datasets.",
+        "PP3: multiple computational tools support a deleterious effect."
+      ]
+    },
+    {
+      "id": "igv",
+      "label": "IGV",
+      "headline": "Read-level review",
+      "items": [
+        "Aligned read pileup placeholder",
+        "Split-read support placeholder",
+        "Coverage track placeholder",
+        "Mapping quality summary placeholder"
+      ]
+    },
+    {
+      "id": "protein",
+      "label": "PROTEIN",
+      "headline": "Protein impact",
+      "items": [
+        "Protein domain disruption placeholder",
+        "Conservation track placeholder",
+        "Structural effect placeholder",
+        "Motif interruption placeholder"
+      ]
+    },
+    {
+      "id": "evaluation",
+      "label": "EVALUATION",
+      "headline": "Case evaluation",
+      "items": [
+        "Phenotype concordance review placeholder",
+        "Segregation summary placeholder",
+        "Gene-disease validity placeholder",
+        "Recommendation notes placeholder"
+      ]
+    }
+  ]
+}

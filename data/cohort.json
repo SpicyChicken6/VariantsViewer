@@ -1,0 +1,19 @@
+{
+  "rows": [
+    {
+      "sampleId": "COH_0012",
+      "genotype": "0/1",
+      "frequency": ""
+    },
+    {
+      "sampleId": "COH_0045",
+      "genotype": "0/1",
+      "frequency": "0.5%"
+    },
+    {
+      "sampleId": "COH_0091",
+      "genotype": "1/1",
+      "frequency": ""
+    }
+  ]
+}
