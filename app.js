@@ -4898,6 +4898,7 @@ function renderGnomadGeneSummary() {
   if (!geneRow) {
     titleHost.textContent = 'GENE SUMMARY';
     if (marrvelLink) marrvelLink.href = 'https://marrvel.org/';
+    metaHost.classList.remove('is-expanded');
     metaHost.textContent = getGeneSummaryText(null);
     tbody.innerHTML = '';
     state.geneSummaryExpanded = false;
@@ -4914,6 +4915,7 @@ function renderGnomadGeneSummary() {
   const fullSummary = getGeneSummaryText(geneRow);
   const { preview, expandable } = buildCollapsedSummary(fullSummary);
   const summaryText = state.geneSummaryExpanded ? fullSummary : preview;
+  metaHost.classList.toggle('is-expanded', expandable && state.geneSummaryExpanded);
 
   titleHost.textContent = 'GENE SUMMARY';
   if (marrvelLink) marrvelLink.href = `https://marrvel.org/human/gene/${geneRow.ncbi}`;
