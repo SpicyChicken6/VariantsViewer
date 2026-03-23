@@ -2,6 +2,13 @@
   --font-body:"Roboto", Arial, Helvetica, sans-serif;
   --font-mono:"Roboto Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --font-pagination:"DM Sans", "Roboto", Arial, Helvetica, sans-serif;
+  --shell-max-width:2400px;
+  --dashboard-gap:clamp(18px, 1.4vw, 28px);
+  --top-stack-height:clamp(388px, 34vh, 540px);
+  --genes-card-height:var(--top-stack-height);
+  --variants-card-height:clamp(618px, 56vh, 900px);
+  --gnomad-card-height:clamp(184px, 17vh, 260px);
+  --predictions-card-height:clamp(618px, 56vh, 900px);
   --bg:#ffffff;
   --card:#ffffff;
   --border:#e8e8eb;
@@ -28,9 +35,9 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 .app-shell{
-  max-width:1840px;
+  max-width:var(--shell-max-width);
   margin:18px auto 24px;
-  padding:0 18px;
+  padding:0 clamp(18px, 2vw, 32px);
 }
 .topbar{
   display:grid;
@@ -170,8 +177,8 @@ body{
 
 .dashboard{
   display:grid;
-  grid-template-columns: 1.02fr .98fr;
-  gap:18px;
+  grid-template-columns:minmax(940px, 1.1fr) minmax(760px, .9fr);
+  gap:var(--dashboard-gap);
 }
 .column{
   display:flex;
@@ -183,8 +190,8 @@ body{
   display:flex;
   flex-direction:column;
   gap:14px;
-  min-height:388px;
-  height:388px;
+  min-height:var(--top-stack-height);
+  height:var(--top-stack-height);
   flex-shrink:0;
 }
 .card{
@@ -196,17 +203,17 @@ body{
 }
 .card.pad{padding:14px 16px 12px}
 .genes-card{
-  min-height:388px;
-  height:388px;
+  min-height:var(--genes-card-height);
+  height:var(--genes-card-height);
 }
 .variants-card{
-  min-height:618px;
-  height:618px;
+  min-height:var(--variants-card-height);
+  height:var(--variants-card-height);
 }
 .phenotype-card{flex:1;min-height:0}
 .gnomad-card{
-  min-height:184px;
-  height:184px;
+  min-height:var(--gnomad-card-height);
+  height:var(--gnomad-card-height);
   display:flex;
 }
 .gnomad-card-body{
@@ -267,7 +274,7 @@ body{
   gap:4px;
 }
 .family-card,.cohort-card{min-height:120px}
-.predictions-card{min-height:618px;height:618px;flex:none}
+.predictions-card{min-height:var(--predictions-card-height);height:var(--predictions-card-height);flex:none}
 
 .table-card{
   display:flex;
@@ -610,6 +617,7 @@ tbody tr:hover td{
   flex-shrink:0;
 }
 .phenotype-scroll{
+  flex:1 1 auto;
   overflow-y:auto;
   min-height:0;
   max-height:130px;
@@ -647,10 +655,14 @@ tbody tr:hover td{
   padding:0;
 }
 .hpo-table-shell{
+  display:flex;
+  flex:1 1 auto;
+  flex-direction:column;
   background:#f4f5f7;
   border-radius:8px;
   padding:6px 12px 10px;
   overflow:hidden;
+  min-height:0;
 }
 .mini-table{
   width:100%;
@@ -1036,4 +1048,23 @@ th.section-title{
   .inheritance-panel-cohort{border-left:0;padding-left:0}
   .inheritance-genotype-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
   .inheritance-cohort-summary{grid-template-columns:1fr}
+}
+
+@media (min-width: 1680px){
+  th,td{
+    padding:10px 10px;
+  }
+  .genes-card .table-inner,
+  .variants-card .table-inner{
+    padding:12px 14px 0;
+  }
+  .card-footer{
+    padding:12px 14px 16px;
+  }
+  .phenotype-body{
+    height:100%;
+  }
+  .phenotype-scroll{
+    max-height:none;
+  }
 }

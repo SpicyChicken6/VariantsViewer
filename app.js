@@ -4447,6 +4447,29 @@ const DATA_MAP = {
   predictions: 'data/predictions.json'
 };
 
+const RESPONSIVE_TABLES = {
+  genes: {
+    dataKey: 'genes',
+    stateKey: 'genesPage',
+    minPageSize: 10,
+    maxPageSize: 22,
+    fallbackRowHeight: 40
+  },
+  variants: {
+    dataKey: 'variants',
+    stateKey: 'variantsPage',
+    minPageSize: 20,
+    maxPageSize: 34,
+    fallbackRowHeight: 40
+  }
+};
+
+let responsiveResizeFrame = 0;
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
+}
+
 async function loadJson(key, url) {
   try {
     const res = await fetch(url, { cache: 'no-store' });
@@ -4466,7 +4489,6 @@ async function boot() {
     Object.entries(DATA_MAP).map(async ([key, url]) => [key, await loadJson(key, url)])
   );
   state.data = Object.fromEntries(entries);
-  state.data.variants.pageSize = 20;
   state.selectedGeneRow = getDefaultSelectedRow(state.data.genes.rows);
   state.selectedVariantRow = getDefaultSelectedRow(state.data.variants.rows);
   const visibleSlides = state.data.phenotypes.slides.filter(s => state.activeOrgans.includes(s.id));
@@ -4477,6 +4499,8 @@ async function boot() {
   wirePills();
   wirePredictionTabs();
   renderAll();
+  syncResponsivePageSizes();
+  window.addEventListener('resize', handleResponsiveResize, { passive: true });
 
   ring.classList.remove('spinning');
 }
@@ -4491,6 +4515,47 @@ function renderAll() {
 function paginateRows(rows, page, pageSize) {
   const start = (page - 1) * pageSize;
   return rows.slice(start, start + pageSize);
+}
+
+function estimateTablePageSize(section) {
+  const config = RESPONSIVE_TABLES[section];
+  const scroller = document.querySelector(`.${section}-card .table-scroll`);
+  if (!config || !scroller) return null;
+
+  const thead = scroller.querySelector('thead');
+  const sampleRow = scroller.querySelector('tbody tr');
+  const headerHeight = thead ? thead.getBoundingClientRect().height : 42;
+  const rowHeight = sampleRow ? sampleRow.getBoundingClientRect().height : config.fallbackRowHeight;
+  const availableHeight = Math.max(0, scroller.clientHeight - headerHeight - 4);
+  const pageSize = Math.floor(availableHeight / Math.max(rowHeight, 1));
+  return clamp(pageSize, config.minPageSize, config.maxPageSize);
+}
+
+function syncResponsivePageSizes() {
+  if (!state.data.genes || !state.data.variants) return false;
+
+  let changed = false;
+  Object.entries(RESPONSIVE_TABLES).forEach(([section, config]) => {
+    const nextPageSize = estimateTablePageSize(section);
+    if (!nextPageSize || state.data[config.dataKey].pageSize === nextPageSize) return;
+
+    state.data[config.dataKey].pageSize = nextPageSize;
+    const totalRows = state.data[config.dataKey].rows.length;
+    const totalPages = Math.max(1, Math.ceil(totalRows / nextPageSize));
+    state[config.stateKey] = Math.min(state[config.stateKey], totalPages);
+    changed = true;
+  });
+
+  if (changed) renderAll();
+  return changed;
+}
+
+function handleResponsiveResize() {
+  if (responsiveResizeFrame) cancelAnimationFrame(responsiveResizeFrame);
+  responsiveResizeFrame = requestAnimationFrame(() => {
+    responsiveResizeFrame = 0;
+    syncResponsivePageSizes();
+  });
 }
 
 function getDefaultSelectedRow(rows) {
