@@ -3,6 +3,8 @@ For the provided list of genes and variants, we wil pull and display the basic a
   - Gene and variant predicted ranks they have,
   - Family info, VCF and BAM data, to display the variant inheritance and view sequencing data in IGV
 
+Live demo: https://spicychicken6.github.io/VariantsViewer/
+
 # LiuZD Lab dashboard mock
 
 Files included:
