@@ -1,6 +1,10 @@
 {
   "tabs": [
     {
+      "id": "inheritance",
+      "label": "INHERITANCE"
+    },
+    {
       "id": "prediction",
       "label": "PREDICTION",
       "metrics": [

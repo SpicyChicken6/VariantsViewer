@@ -9,6 +9,10 @@ const FALLBACK_DATA = {
         "synonyms": "MRX16, RTT",
         "ensembl": "ENSG00000169057",
         "ncbi": 4204,
+        "clingenClassification": "Definitive",
+        "moi": "XLD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "52.3/48/0.92/0.89",
         "missense": "145.2/158/1.09/1.12",
         "lof": "18.6/3/0.98/0.16",
@@ -20,6 +24,10 @@ const FALLBACK_DATA = {
         "synonyms": "VDUP1, HHCPA78",
         "ensembl": "ENSG0000011676",
         "ncbi": 10629,
+        "clingenClassification": "Limited",
+        "moi": "AD",
+        "hiScore": "0",
+        "tsScore": "0",
         "synonymous": "49.2/51/1.05/1.02",
         "missense": "132.8/125/0.94/0.91",
         "lof": "16.2/8/0.85/0.49",
@@ -31,6 +39,10 @@ const FALLBACK_DATA = {
         "synonyms": "PROSAP2, PSAP2",
         "ensembl": "ENSG00000251322",
         "ncbi": 85360,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "62.4/59/0.96/0.93",
         "missense": "178.9/195/1.09/1.15",
         "lof": "24.3/5/0.92/0.21",
@@ -42,6 +54,10 @@ const FALLBACK_DATA = {
         "synonyms": "NEUN, HNRNP3",
         "ensembl": "ENSG00000167281",
         "ncbi": 14676,
+        "clingenClassification": "Moderate",
+        "moi": "AD",
+        "hiScore": "2",
+        "tsScore": "0",
         "synonymous": "39.7/41/1.07/1.04",
         "missense": "98.5/88/0.89/0.86",
         "lof": "12.8/2/0.95/0.16",
@@ -53,6 +69,10 @@ const FALLBACK_DATA = {
         "synonyms": "KIA, MIB-1",
         "ensembl": "ENSG00000148773",
         "ncbi": 4292,
+        "clingenClassification": "Limited",
+        "moi": "AD",
+        "hiScore": "0",
+        "tsScore": "1",
         "synonymous": "73.5/68/0.95/0.91",
         "missense": "205.3/218/1.06/1.09",
         "lof": "28.7/12/0.88/0.42",
@@ -64,6 +84,10 @@ const FALLBACK_DATA = {
         "synonyms": "DC, DBCN",
         "ensembl": "ENSG00000077279",
         "ncbi": 1646,
+        "clingenClassification": "Definitive",
+        "moi": "XLD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "46.3/46/1.05/1.01",
         "missense": "118.6/105/0.89/0.85",
         "lof": "15.4/4/0.91/0.26",
@@ -75,6 +99,10 @@ const FALLBACK_DATA = {
         "synonyms": "ADNP1, MRX10",
         "ensembl": "ENSG00000101126",
         "ncbi": 23394,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "41.2/38/0.92/0.92",
         "missense": "112.5/120/1.07/1.07",
         "lof": "13.4/2/0.94/0.15",
@@ -86,6 +114,10 @@ const FALLBACK_DATA = {
         "synonyms": "NR2B, MRD6",
         "ensembl": "ENSG00000116748",
         "ncbi": 2904,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "68.4/65/0.95/0.95",
         "missense": "192.1/205/1.10/1.09",
         "lof": "26.2/8/0.91/0.31",
@@ -97,6 +129,10 @@ const FALLBACK_DATA = {
         "synonyms": "KIAA1938",
         "ensembl": "ENSG00000197283",
         "ncbi": 8831,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "43.9/40/0.97/0.93",
         "missense": "121.4/130/1.08/1.07",
         "lof": "14.1/2/0.96/0.14",
@@ -108,6 +144,10 @@ const FALLBACK_DATA = {
         "synonyms": "DEE11, NAC2",
         "ensembl": "ENSG00000136531",
         "ncbi": 6326,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "77.8/74/0.93/0.95",
         "missense": "214.0/226/1.06/1.06",
         "lof": "29.2/9/0.90/0.31",
@@ -119,6 +159,10 @@ const FALLBACK_DATA = {
         "synonyms": "MNBH, MRD7",
         "ensembl": "ENSG00000157540",
         "ncbi": 1859,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "61.6/178/1.05/0.5",
         "missense": "114.3/53/0.8/0.59",
         "lof": "25.1/9/0.95/0.46",
@@ -130,6 +174,10 @@ const FALLBACK_DATA = {
         "synonyms": "GLSS, MIPHI",
         "ensembl": "ENSG00000119042",
         "ncbi": 23314,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "73.5/215/1.0/0.47",
         "missense": "129.7/295/0.83/1.14",
         "lof": "19.3/7/0.85/0.27",
@@ -141,6 +189,10 @@ const FALLBACK_DATA = {
         "synonyms": "AUTS13",
         "ensembl": "ENSG00000136535",
         "ncbi": 10716,
+        "clingenClassification": "Strong",
+        "moi": "AD",
+        "hiScore": "2",
+        "tsScore": "0",
         "synonymous": "53.0/96/0.83/0.89",
         "missense": "142.7/184/0.87/1.02",
         "lof": "13.4/4/0.91/0.35",
@@ -152,6 +204,10 @@ const FALLBACK_DATA = {
         "synonyms": "MMAC1",
         "ensembl": "ENSG00000171862",
         "ncbi": 5728,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "1",
         "synonymous": "44.7/61/0.85/0.46",
         "missense": "164.0/123/0.88/0.73",
         "lof": "27.9/0/0.89/0.4",
@@ -163,6 +219,10 @@ const FALLBACK_DATA = {
         "synonyms": "AUTS18",
         "ensembl": "ENSG00000100888",
         "ncbi": 57680,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "64.8/13/0.94/0.96",
         "missense": "156.3/273/0.99/0.67",
         "lof": "13.6/4/0.97/0.15",
@@ -174,6 +234,10 @@ const FALLBACK_DATA = {
         "synonyms": "CASPR2",
         "ensembl": "ENSG00000174469",
         "ncbi": 26047,
+        "clingenClassification": "Moderate",
+        "moi": "AR",
+        "hiScore": "1",
+        "tsScore": "0",
         "synonymous": "74.2/161/0.91/0.78",
         "missense": "162.0/302/1.18/1.1",
         "lof": "15.5/4/0.9/0.32",
@@ -185,6 +249,10 @@ const FALLBACK_DATA = {
         "synonyms": "MLL1",
         "ensembl": "ENSG00000118058",
         "ncbi": 4297,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "67.9/136/1.03/0.85",
         "missense": "219.1/205/0.8/0.94",
         "lof": "28.2/3/0.81/0.17",
@@ -196,6 +264,10 @@ const FALLBACK_DATA = {
         "synonyms": "MYST3, MOZ",
         "ensembl": "ENSG00000125730",
         "ncbi": 7994,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "76.5/123/0.88/0.44",
         "missense": "207.0/88/0.98/0.58",
         "lof": "20.9/1/0.94/0.41",
@@ -207,6 +279,10 @@ const FALLBACK_DATA = {
         "synonyms": "HYPB, HIF-1",
         "ensembl": "ENSG00000181555",
         "ncbi": 29072,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "62.8/157/1.07/0.86",
         "missense": "208.0/264/1.19/1.04",
         "lof": "20.8/1/0.85/0.24",
@@ -218,6 +294,10 @@ const FALLBACK_DATA = {
         "synonyms": "AUTS2",
         "ensembl": "ENSG00000158321",
         "ncbi": 26053,
+        "clingenClassification": "Strong",
+        "moi": "AD",
+        "hiScore": "2",
+        "tsScore": "0",
         "synonymous": "41.0/200/0.89/0.48",
         "missense": "210.3/20/1.1/0.92",
         "lof": "10.6/9/0.95/0.4",
@@ -229,6 +309,10 @@ const FALLBACK_DATA = {
         "synonyms": "MRX16, RTT",
         "ensembl": "ENSG00000169057",
         "ncbi": 4204,
+        "clingenClassification": "Definitive",
+        "moi": "XLD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "60.9/160/0.98/0.5",
         "missense": "98.8/334/1.04/0.49",
         "lof": "27.0/10/0.81/0.4",
@@ -240,6 +324,10 @@ const FALLBACK_DATA = {
         "synonyms": "VDUP1, HHCPA78",
         "ensembl": "ENSG0000011676",
         "ncbi": 10629,
+        "clingenClassification": "Limited",
+        "moi": "AD",
+        "hiScore": "0",
+        "tsScore": "0",
         "synonymous": "66.1/175/1.02/0.91",
         "missense": "172.7/300/0.72/0.66",
         "lof": "10.4/2/0.96/0.17",
@@ -251,6 +339,10 @@ const FALLBACK_DATA = {
         "synonyms": "PROSAP2, PSAP2",
         "ensembl": "ENSG00000251322",
         "ncbi": 85360,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "65.0/127/1.07/0.59",
         "missense": "125.5/208/1.14/1.13",
         "lof": "12.6/1/0.85/0.28",
@@ -262,6 +354,10 @@ const FALLBACK_DATA = {
         "synonyms": "NEUN, HNRNP3",
         "ensembl": "ENSG00000167281",
         "ncbi": 14676,
+        "clingenClassification": "Moderate",
+        "moi": "AD",
+        "hiScore": "2",
+        "tsScore": "0",
         "synonymous": "60.2/130/1.01/0.86",
         "missense": "113.7/227/0.74/0.74",
         "lof": "12.0/6/0.93/0.3",
@@ -273,6 +369,10 @@ const FALLBACK_DATA = {
         "synonyms": "KIA, MIB-1",
         "ensembl": "ENSG00000148773",
         "ncbi": 4292,
+        "clingenClassification": "Limited",
+        "moi": "AD",
+        "hiScore": "0",
+        "tsScore": "1",
         "synonymous": "61.5/70/1.08/0.17",
         "missense": "96.0/331/1.19/0.87",
         "lof": "14.2/0/0.88/0.45",
@@ -284,6 +384,10 @@ const FALLBACK_DATA = {
         "synonyms": "DC, DBCN",
         "ensembl": "ENSG00000077279",
         "ncbi": 1646,
+        "clingenClassification": "Definitive",
+        "moi": "XLD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "52.2/16/1.08/0.56",
         "missense": "172.0/65/0.99/0.83",
         "lof": "22.6/12/0.91/0.35",
@@ -295,6 +399,10 @@ const FALLBACK_DATA = {
         "synonyms": "ADNP1, MRX10",
         "ensembl": "ENSG00000101126",
         "ncbi": 23394,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "36.2/9/1.08/0.43",
         "missense": "192.9/253/0.82/1.14",
         "lof": "27.3/9/0.98/0.3",
@@ -306,6 +414,10 @@ const FALLBACK_DATA = {
         "synonyms": "NR2B, MRD6",
         "ensembl": "ENSG00000166748",
         "ncbi": 2904,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "76.4/22/0.9/0.76",
         "missense": "180.7/263/1.04/0.95",
         "lof": "16.8/2/0.84/0.25",
@@ -317,6 +429,10 @@ const FALLBACK_DATA = {
         "synonyms": "KIAA1938",
         "ensembl": "ENSG00000197283",
         "ncbi": 8831,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "49.8/63/0.98/0.89",
         "missense": "139.8/72/1.13/0.47",
         "lof": "13.0/1/0.92/0.43",
@@ -328,6 +444,10 @@ const FALLBACK_DATA = {
         "synonyms": "DEE11, NAC2",
         "ensembl": "ENSG00000136531",
         "ncbi": 6326,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "36.5/69/1.06/0.27",
         "missense": "156.9/216/1.05/0.56",
         "lof": "11.2/3/0.83/0.32",
@@ -339,6 +459,10 @@ const FALLBACK_DATA = {
         "synonyms": "MNBH, MRD7",
         "ensembl": "ENSG00000157540",
         "ncbi": 1859,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "75.0/203/1.05/0.24",
         "missense": "214.6/165/0.71/0.63",
         "lof": "25.8/3/0.94/0.23",
@@ -350,6 +474,10 @@ const FALLBACK_DATA = {
         "synonyms": "GLSS, MIPHI",
         "ensembl": "ENSG00000119042",
         "ncbi": 23314,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "64.3/89/1.02/0.9",
         "missense": "154.3/25/0.96/0.74",
         "lof": "24.3/8/1.0/0.17",
@@ -361,6 +489,10 @@ const FALLBACK_DATA = {
         "synonyms": "AUTS13",
         "ensembl": "ENSG00000136535",
         "ncbi": 10716,
+        "clingenClassification": "Strong",
+        "moi": "AD",
+        "hiScore": "2",
+        "tsScore": "0",
         "synonymous": "70.6/46/0.83/0.88",
         "missense": "114.2/98/0.8/1.07",
         "lof": "10.8/12/0.83/0.35",
@@ -372,6 +504,10 @@ const FALLBACK_DATA = {
         "synonyms": "MMAC1",
         "ensembl": "ENSG00000171862",
         "ncbi": 5728,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "1",
         "synonymous": "65.9/186/0.82/0.37",
         "missense": "88.4/245/0.72/0.52",
         "lof": "21.6/6/0.86/0.4",
@@ -383,6 +519,10 @@ const FALLBACK_DATA = {
         "synonyms": "AUTS18",
         "ensembl": "ENSG00000100888",
         "ncbi": 57680,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "64.8/114/1.02/0.82",
         "missense": "202.2/207/0.96/0.89",
         "lof": "26.3/4/0.93/0.35",
@@ -394,6 +534,10 @@ const FALLBACK_DATA = {
         "synonyms": "CASPR2",
         "ensembl": "ENSG00000174469",
         "ncbi": 26047,
+        "clingenClassification": "Moderate",
+        "moi": "AR",
+        "hiScore": "1",
+        "tsScore": "0",
         "synonymous": "73.2/12/0.83/0.16",
         "missense": "190.0/26/1.01/1.04",
         "lof": "12.9/9/0.82/0.46",
@@ -405,6 +549,10 @@ const FALLBACK_DATA = {
         "synonyms": "MLL1",
         "ensembl": "ENSG00000118058",
         "ncbi": 4297,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "47.7/187/0.96/0.22",
         "missense": "132.7/49/1.01/0.75",
         "lof": "22.6/9/0.94/0.42",
@@ -416,6 +564,10 @@ const FALLBACK_DATA = {
         "synonyms": "MYST3, MOZ",
         "ensembl": "ENSG00000125730",
         "ncbi": 7994,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "75.8/149/1.0/0.6",
         "missense": "112.4/99/0.83/1.12",
         "lof": "25.3/9/0.89/0.46",
@@ -427,6 +579,10 @@ const FALLBACK_DATA = {
         "synonyms": "HYPB, HIF-1",
         "ensembl": "ENSG00000181555",
         "ncbi": 29072,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "53.5/210/0.87/0.16",
         "missense": "208.6/105/0.85/1.09",
         "lof": "20.9/6/0.89/0.26",
@@ -438,6 +594,10 @@ const FALLBACK_DATA = {
         "synonyms": "AUTS2",
         "ensembl": "ENSG00000158321",
         "ncbi": 26053,
+        "clingenClassification": "Strong",
+        "moi": "AD",
+        "hiScore": "2",
+        "tsScore": "0",
         "synonymous": "47.3/202/1.0/0.56",
         "missense": "114.4/140/0.94/0.58",
         "lof": "27.8/6/0.86/0.35",
@@ -449,6 +609,10 @@ const FALLBACK_DATA = {
         "synonyms": "MRX16, RTT",
         "ensembl": "ENSG00000169057",
         "ncbi": 4204,
+        "clingenClassification": "Definitive",
+        "moi": "XLD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "37.6/82/0.9/0.87",
         "missense": "162.1/130/0.91/0.81",
         "lof": "21.2/5/0.96/0.15",
@@ -460,6 +624,10 @@ const FALLBACK_DATA = {
         "synonyms": "VDUP1, HHCPA78",
         "ensembl": "ENSG0000011676",
         "ncbi": 10629,
+        "clingenClassification": "Limited",
+        "moi": "AD",
+        "hiScore": "0",
+        "tsScore": "0",
         "synonymous": "46.7/184/0.96/0.44",
         "missense": "106.4/292/0.95/0.56",
         "lof": "15.2/2/0.82/0.26",
@@ -471,6 +639,10 @@ const FALLBACK_DATA = {
         "synonyms": "PROSAP2, PSAP2",
         "ensembl": "ENSG00000251322",
         "ncbi": 85360,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "58.0/95/1.07/0.94",
         "missense": "132.9/149/0.71/0.47",
         "lof": "17.9/3/0.93/0.21",
@@ -482,6 +654,10 @@ const FALLBACK_DATA = {
         "synonyms": "NEUN, HNRNP3",
         "ensembl": "ENSG00000167281",
         "ncbi": 14676,
+        "clingenClassification": "Moderate",
+        "moi": "AD",
+        "hiScore": "2",
+        "tsScore": "0",
         "synonymous": "67.0/187/0.85/0.82",
         "missense": "150.4/80/1.07/0.73",
         "lof": "23.5/7/0.86/0.49",
@@ -493,6 +669,10 @@ const FALLBACK_DATA = {
         "synonyms": "KIA, MIB-1",
         "ensembl": "ENSG00000148773",
         "ncbi": 4292,
+        "clingenClassification": "Limited",
+        "moi": "AD",
+        "hiScore": "0",
+        "tsScore": "1",
         "synonymous": "44.7/176/0.85/0.59",
         "missense": "169.9/86/0.76/1.07",
         "lof": "17.8/6/0.96/0.44",
@@ -504,6 +684,10 @@ const FALLBACK_DATA = {
         "synonyms": "DC, DBCN",
         "ensembl": "ENSG00000077279",
         "ncbi": 1646,
+        "clingenClassification": "Definitive",
+        "moi": "XLD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "68.1/168/0.8/0.79",
         "missense": "108.1/270/0.86/0.5",
         "lof": "17.4/4/1.0/0.2",
@@ -515,6 +699,10 @@ const FALLBACK_DATA = {
         "synonyms": "ADNP1, MRX10",
         "ensembl": "ENSG00000101126",
         "ncbi": 23394,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "55.7/108/0.88/0.48",
         "missense": "129.6/263/1.18/0.6",
         "lof": "28.3/6/0.87/0.29",
@@ -526,6 +714,10 @@ const FALLBACK_DATA = {
         "synonyms": "NR2B, MRD6",
         "ensembl": "ENSG00000166748",
         "ncbi": 2904,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "62.9/115/1.09/0.17",
         "missense": "123.9/58/0.85/0.61",
         "lof": "26.5/8/0.89/0.28",
@@ -537,6 +729,10 @@ const FALLBACK_DATA = {
         "synonyms": "KIAA1938",
         "ensembl": "ENSG00000197283",
         "ncbi": 8831,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "40.0/14/1.07/0.52",
         "missense": "180.1/145/1.14/0.93",
         "lof": "24.6/4/0.97/0.45",
@@ -548,6 +744,10 @@ const FALLBACK_DATA = {
         "synonyms": "DEE11, NAC2",
         "ensembl": "ENSG00000136531",
         "ncbi": 6326,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "56.6/112/0.93/0.56",
         "missense": "159.9/124/0.8/0.85",
         "lof": "24.1/8/0.98/0.48",
@@ -559,6 +759,10 @@ const FALLBACK_DATA = {
         "synonyms": "MNBH, MRD7",
         "ensembl": "ENSG00000157540",
         "ncbi": 1859,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "38.1/14/1.01/0.51",
         "missense": "213.9/325/0.79/0.61",
         "lof": "12.2/9/0.85/0.18",
@@ -570,6 +774,10 @@ const FALLBACK_DATA = {
         "synonyms": "GLSS, MIPHI",
         "ensembl": "ENSG00000119042",
         "ncbi": 23314,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "39.4/148/0.92/0.29",
         "missense": "118.7/296/1.19/0.82",
         "lof": "21.5/8/0.8/0.41",
@@ -581,6 +789,10 @@ const FALLBACK_DATA = {
         "synonyms": "AUTS13",
         "ensembl": "ENSG00000136535",
         "ncbi": 10716,
+        "clingenClassification": "Strong",
+        "moi": "AD",
+        "hiScore": "2",
+        "tsScore": "0",
         "synonymous": "54.0/205/0.89/0.16",
         "missense": "136.4/181/1.02/0.68",
         "lof": "25.2/6/0.86/0.16",
@@ -592,6 +804,10 @@ const FALLBACK_DATA = {
         "synonyms": "MMAC1",
         "ensembl": "ENSG00000171862",
         "ncbi": 5728,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "1",
         "synonymous": "71.6/123/0.87/0.62",
         "missense": "216.5/134/0.72/0.64",
         "lof": "17.4/5/0.98/0.2",
@@ -603,6 +819,10 @@ const FALLBACK_DATA = {
         "synonyms": "AUTS18",
         "ensembl": "ENSG00000100888",
         "ncbi": 57680,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "40.8/181/0.99/0.34",
         "missense": "151.7/334/0.99/0.76",
         "lof": "18.8/4/0.9/0.47",
@@ -614,6 +834,10 @@ const FALLBACK_DATA = {
         "synonyms": "CASPR2",
         "ensembl": "ENSG00000174469",
         "ncbi": 26047,
+        "clingenClassification": "Moderate",
+        "moi": "AR",
+        "hiScore": "1",
+        "tsScore": "0",
         "synonymous": "63.6/178/0.95/0.81",
         "missense": "195.0/225/0.72/0.86",
         "lof": "24.4/7/0.89/0.25",
@@ -625,6 +849,10 @@ const FALLBACK_DATA = {
         "synonyms": "MLL1",
         "ensembl": "ENSG00000118058",
         "ncbi": 4297,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "51.2/97/0.87/0.79",
         "missense": "143.1/54/1.15/0.59",
         "lof": "18.3/0/0.94/0.38",
@@ -636,6 +864,10 @@ const FALLBACK_DATA = {
         "synonyms": "MYST3, MOZ",
         "ensembl": "ENSG00000125730",
         "ncbi": 7994,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "37.6/219/0.88/0.81",
         "missense": "205.4/183/0.87/0.71",
         "lof": "23.8/2/0.88/0.21",
@@ -647,6 +879,10 @@ const FALLBACK_DATA = {
         "synonyms": "HYPB, HIF-1",
         "ensembl": "ENSG00000181555",
         "ncbi": 29072,
+        "clingenClassification": "Definitive",
+        "moi": "AD",
+        "hiScore": "3",
+        "tsScore": "0",
         "synonymous": "47.3/149/0.89/0.78",
         "missense": "118.2/271/0.88/0.91",
         "lof": "23.4/7/0.97/0.33",
@@ -658,6 +894,10 @@ const FALLBACK_DATA = {
         "synonyms": "AUTS2",
         "ensembl": "ENSG00000158321",
         "ncbi": 26053,
+        "clingenClassification": "Strong",
+        "moi": "AD",
+        "hiScore": "2",
+        "tsScore": "0",
         "synonymous": "65.7/140/0.8/0.13",
         "missense": "134.4/59/0.94/1.03",
         "lof": "17.0/4/0.83/0.48",
@@ -667,7 +907,7 @@ const FALLBACK_DATA = {
   },
   "variants": {
     "totalCount": 342,
-    "pageSize": 5,
+    "pageSize": 20,
     "rows": [
       {
         "variant": "2-104856069-T-TG",
@@ -3411,337 +3651,678 @@ const FALLBACK_DATA = {
     "itemsVisible": 4,
     "slides": [
       {
-        "id": "neurologic",
-        "label": "Neurologic",
-        "icon": "assets/icon-brain.svg",
+        "id": "head-neck",
+        "label": "Head and neck",
+        "icon": "assets/organs/head-and-neck.svg",
         "active": true,
         "omimPhenotypes": [
-          {
-            "phenotype": "Tay-Sachs disease",
-            "inheritance": "AR",
-            "match": "42%"
-          },
-          {
-            "phenotype": "Hemophilia A",
-            "inheritance": "XLR",
-            "match": "40%"
-          },
-          {
-            "phenotype": "Duchenne dystrophy",
-            "inheritance": "XLR",
-            "match": "38%"
-          },
-          {
-            "phenotype": "Cystic Fibrosis",
-            "inheritance": "AR",
-            "match": "35%"
-          }
+          { "phenotype": "Craniosynostosis", "inheritance": "AD", "match": "38%" },
+          { "phenotype": "Treacher Collins syndrome", "inheritance": "AD", "match": "33%" },
+          { "phenotype": "Branchio-oto-renal syndrome", "inheritance": "AD", "match": "28%" },
+          { "phenotype": "Pierre Robin sequence", "inheritance": "AD", "match": "24%" },
+          { "phenotype": "Apert syndrome", "inheritance": "AD", "match": "22%" },
+          { "phenotype": "Crouzon syndrome", "inheritance": "AD", "match": "19%" },
+          { "phenotype": "Pfeiffer syndrome", "inheritance": "AD", "match": "17%" },
+          { "phenotype": "Saethre-Chotzen syndrome", "inheritance": "AD", "match": "15%" },
+          { "phenotype": "Muenke syndrome", "inheritance": "AD", "match": "12%" }
         ],
         "hpoTerms": [
-          {
-            "code": "HP:0001878",
-            "name": "Hemolytic anemia"
-          },
-          {
-            "code": "HP:0001903",
-            "name": "Anemia"
-          },
-          {
-            "code": "HP:0002488",
-            "name": "Acute leukemia"
-          },
-          {
-            "code": "HP:0001250",
-            "name": "Seizures"
-          }
+          { "code": "HP:0000238", "name": "Hydrocephalus" },
+          { "code": "HP:0000347", "name": "Micrognathia" },
+          { "code": "HP:0000365", "name": "Hearing impairment" },
+          { "code": "HP:0000252", "name": "Microcephaly" },
+          { "code": "HP:0000316", "name": "Hypertelorism" },
+          { "code": "HP:0000431", "name": "Wide nasal bridge" },
+          { "code": "HP:0000278", "name": "Retrognathia" },
+          { "code": "HP:0011329", "name": "Abnormality of cranial sutures" },
+          { "code": "HP:0000384", "name": "Preauricular skin tag" },
+          { "code": "HP:0000405", "name": "Conductive hearing impairment" }
+        ]
+      },
+      {
+        "id": "neurologic",
+        "label": "Nervous system",
+        "icon": "assets/organs/nervous-system.svg",
+        "omimPhenotypes": [
+          { "phenotype": "Tay-Sachs disease", "inheritance": "AR", "match": "42%" },
+          { "phenotype": "Hemophilia A", "inheritance": "XLR", "match": "40%" },
+          { "phenotype": "Duchenne dystrophy", "inheritance": "XLR", "match": "38%" },
+          { "phenotype": "Cystic Fibrosis", "inheritance": "AR", "match": "35%" },
+          { "phenotype": "Rett syndrome", "inheritance": "XLD", "match": "32%" },
+          { "phenotype": "Angelman syndrome", "inheritance": "AD", "match": "28%" },
+          { "phenotype": "Huntington disease", "inheritance": "AD", "match": "25%" },
+          { "phenotype": "Charcot-Marie-Tooth type 1A", "inheritance": "AD", "match": "22%" },
+          { "phenotype": "Tuberous sclerosis", "inheritance": "AD", "match": "18%" }
+        ],
+        "hpoTerms": [
+          { "code": "HP:0001250", "name": "Seizures" },
+          { "code": "HP:0001263", "name": "Global developmental delay" },
+          { "code": "HP:0002488", "name": "Acute leukemia" },
+          { "code": "HP:0001249", "name": "Intellectual disability" },
+          { "code": "HP:0002072", "name": "Chorea" },
+          { "code": "HP:0001332", "name": "Dystonia" },
+          { "code": "HP:0000729", "name": "Autistic behavior" },
+          { "code": "HP:0001257", "name": "Spasticity" },
+          { "code": "HP:0002120", "name": "Cerebral cortical atrophy" },
+          { "code": "HP:0001290", "name": "Generalized hypotonia" }
+        ]
+      },
+      {
+        "id": "endocrine",
+        "label": "Endocrine system",
+        "icon": "assets/organs/endocrine-system.svg",
+        "omimPhenotypes": [
+          { "phenotype": "Congenital adrenal hyperplasia", "inheritance": "AR", "match": "36%" },
+          { "phenotype": "Thyroid dyshormonogenesis", "inheritance": "AR", "match": "31%" },
+          { "phenotype": "Hyperinsulinism familial", "inheritance": "AR", "match": "27%" },
+          { "phenotype": "Growth hormone deficiency", "inheritance": "AR", "match": "23%" },
+          { "phenotype": "Multiple endocrine neoplasia type 1", "inheritance": "AD", "match": "20%" },
+          { "phenotype": "Kallmann syndrome", "inheritance": "XLR", "match": "18%" },
+          { "phenotype": "Pseudohypoparathyroidism", "inheritance": "AD", "match": "15%" },
+          { "phenotype": "Adrenal insufficiency", "inheritance": "AR", "match": "13%" }
+        ],
+        "hpoTerms": [
+          { "code": "HP:0000821", "name": "Hypothyroidism" },
+          { "code": "HP:0000845", "name": "Growth hormone excess" },
+          { "code": "HP:0000829", "name": "Hypoparathyroidism" },
+          { "code": "HP:0000819", "name": "Diabetes mellitus" },
+          { "code": "HP:0000853", "name": "Goiter" },
+          { "code": "HP:0000858", "name": "Menstrual irregularities" },
+          { "code": "HP:0000824", "name": "Decreased response to GH stimulation" },
+          { "code": "HP:0004322", "name": "Short stature" },
+          { "code": "HP:0000840", "name": "Adrenogenital syndrome" }
+        ]
+      },
+      {
+        "id": "integument",
+        "label": "Integument",
+        "icon": "assets/organs/integument.svg",
+        "omimPhenotypes": [
+          { "phenotype": "Epidermolysis bullosa", "inheritance": "AR", "match": "35%" },
+          { "phenotype": "Ichthyosis vulgaris", "inheritance": "AD", "match": "30%" },
+          { "phenotype": "Ectodermal dysplasia", "inheritance": "XLR", "match": "26%" },
+          { "phenotype": "Albinism oculocutaneous", "inheritance": "AR", "match": "22%" },
+          { "phenotype": "Psoriasis susceptibility", "inheritance": "AD", "match": "19%" },
+          { "phenotype": "Xeroderma pigmentosum", "inheritance": "AR", "match": "16%" },
+          { "phenotype": "Incontinentia pigmenti", "inheritance": "XLD", "match": "14%" },
+          { "phenotype": "Darier disease", "inheritance": "AD", "match": "11%" }
+        ],
+        "hpoTerms": [
+          { "code": "HP:0000958", "name": "Dry skin" },
+          { "code": "HP:0001030", "name": "Fragile skin" },
+          { "code": "HP:0001010", "name": "Hypopigmentation" },
+          { "code": "HP:0008066", "name": "Abnormal blistering" },
+          { "code": "HP:0000962", "name": "Hyperkeratosis" },
+          { "code": "HP:0001000", "name": "Abnormality of skin pigmentation" },
+          { "code": "HP:0001056", "name": "Milia" },
+          { "code": "HP:0200034", "name": "Papule" },
+          { "code": "HP:0000982", "name": "Palmoplantar keratoderma" }
+        ]
+      },
+      {
+        "id": "limb",
+        "label": "Limb and appendage",
+        "icon": "assets/organs/limb-and-appendage.svg",
+        "omimPhenotypes": [
+          { "phenotype": "Polydactyly preaxial", "inheritance": "AD", "match": "33%" },
+          { "phenotype": "Brachydactyly type A1", "inheritance": "AD", "match": "29%" },
+          { "phenotype": "Ectrodactyly", "inheritance": "AD", "match": "25%" },
+          { "phenotype": "Acheiropody", "inheritance": "AR", "match": "20%" },
+          { "phenotype": "Holt-Oram syndrome", "inheritance": "AD", "match": "18%" },
+          { "phenotype": "Nail-patella syndrome", "inheritance": "AD", "match": "15%" },
+          { "phenotype": "Thrombocytopenia absent radius", "inheritance": "AR", "match": "13%" },
+          { "phenotype": "Fanconi anemia", "inheritance": "AR", "match": "10%" },
+          { "phenotype": "Cornelia de Lange syndrome", "inheritance": "AD", "match": "8%" }
+        ],
+        "hpoTerms": [
+          { "code": "HP:0001159", "name": "Syndactyly" },
+          { "code": "HP:0100258", "name": "Preaxial polydactyly" },
+          { "code": "HP:0001171", "name": "Split hand" },
+          { "code": "HP:0009778", "name": "Short thumb" },
+          { "code": "HP:0009381", "name": "Short finger" },
+          { "code": "HP:0001191", "name": "Abnormal carpal morphology" },
+          { "code": "HP:0002984", "name": "Hypoplasia of the radius" },
+          { "code": "HP:0006101", "name": "Finger syndactyly" },
+          { "code": "HP:0001770", "name": "Toe syndactyly" },
+          { "code": "HP:0004691", "name": "2-3 toe syndactyly" }
+        ]
+      },
+      {
+        "id": "skeletal",
+        "label": "Skeletal and connective tissue",
+        "icon": "assets/organs/skeletal-connective-tissue.svg",
+        "omimPhenotypes": [
+          { "phenotype": "Osteogenesis imperfecta", "inheritance": "AD", "match": "37%" },
+          { "phenotype": "Marfan syndrome", "inheritance": "AD", "match": "32%" },
+          { "phenotype": "Ehlers-Danlos syndrome", "inheritance": "AD", "match": "28%" },
+          { "phenotype": "Achondroplasia", "inheritance": "AD", "match": "25%" },
+          { "phenotype": "Stickler syndrome", "inheritance": "AD", "match": "21%" },
+          { "phenotype": "Hypophosphatasia", "inheritance": "AR", "match": "18%" },
+          { "phenotype": "Fibrodysplasia ossificans", "inheritance": "AD", "match": "15%" },
+          { "phenotype": "Cleidocranial dysplasia", "inheritance": "AD", "match": "12%" }
+        ],
+        "hpoTerms": [
+          { "code": "HP:0001382", "name": "Joint hypermobility" },
+          { "code": "HP:0000939", "name": "Osteoporosis" },
+          { "code": "HP:0002650", "name": "Scoliosis" },
+          { "code": "HP:0004322", "name": "Short stature" },
+          { "code": "HP:0002515", "name": "Waddling gait" },
+          { "code": "HP:0003019", "name": "Abnormality of the wrist" },
+          { "code": "HP:0001376", "name": "Limitation of joint mobility" },
+          { "code": "HP:0000944", "name": "Abnormality of the metaphysis" },
+          { "code": "HP:0002758", "name": "Osteoarthritis" }
+        ]
+      },
+      {
+        "id": "muscular",
+        "label": "Muscular system",
+        "icon": "assets/organs/muscular-system.svg",
+        "omimPhenotypes": [
+          { "phenotype": "Duchenne muscular dystrophy", "inheritance": "XLR", "match": "40%" },
+          { "phenotype": "Myotonic dystrophy type 1", "inheritance": "AD", "match": "35%" },
+          { "phenotype": "Spinal muscular atrophy", "inheritance": "AR", "match": "31%" },
+          { "phenotype": "Congenital myopathy", "inheritance": "AR", "match": "26%" },
+          { "phenotype": "Becker muscular dystrophy", "inheritance": "XLR", "match": "23%" },
+          { "phenotype": "Limb-girdle muscular dystrophy", "inheritance": "AR", "match": "20%" },
+          { "phenotype": "Facioscapulohumeral dystrophy", "inheritance": "AD", "match": "17%" },
+          { "phenotype": "Emery-Dreifuss muscular dystrophy", "inheritance": "XLR", "match": "14%" },
+          { "phenotype": "Myasthenia gravis congenital", "inheritance": "AR", "match": "11%" }
+        ],
+        "hpoTerms": [
+          { "code": "HP:0001324", "name": "Muscle weakness" },
+          { "code": "HP:0003202", "name": "Muscle atrophy" },
+          { "code": "HP:0003458", "name": "Elevated CK" },
+          { "code": "HP:0001252", "name": "Hypotonia" },
+          { "code": "HP:0003325", "name": "Limb-girdle muscle weakness" },
+          { "code": "HP:0003701", "name": "Proximal muscle weakness" },
+          { "code": "HP:0003560", "name": "Muscular dystrophy" },
+          { "code": "HP:0001371", "name": "Flexion contracture" },
+          { "code": "HP:0003307", "name": "Hyperlordosis" },
+          { "code": "HP:0002093", "name": "Respiratory insufficiency" }
         ]
       },
       {
         "id": "cardiac",
-        "label": "Cardiac",
-        "icon": "assets/icon-heart.svg",
+        "label": "Cardiovascular system",
+        "icon": "assets/organs/cardiovascular-system.svg",
         "omimPhenotypes": [
-          {
-            "phenotype": "Dilated cardiomyopathy",
-            "inheritance": "AD",
-            "match": "44%"
-          },
-          {
-            "phenotype": "Long QT syndrome",
-            "inheritance": "AD",
-            "match": "39%"
-          },
-          {
-            "phenotype": "Arrhythmogenic cardiomyopathy",
-            "inheritance": "AD",
-            "match": "35%"
-          },
-          {
-            "phenotype": "Brugada syndrome",
-            "inheritance": "AD",
-            "match": "31%"
-          }
+          { "phenotype": "Dilated cardiomyopathy", "inheritance": "AD", "match": "44%" },
+          { "phenotype": "Long QT syndrome", "inheritance": "AD", "match": "39%" },
+          { "phenotype": "Arrhythmogenic cardiomyopathy", "inheritance": "AD", "match": "35%" },
+          { "phenotype": "Brugada syndrome", "inheritance": "AD", "match": "31%" },
+          { "phenotype": "Hypertrophic cardiomyopathy", "inheritance": "AD", "match": "28%" },
+          { "phenotype": "Catecholaminergic polymorphic VT", "inheritance": "AD", "match": "24%" },
+          { "phenotype": "Familial atrial fibrillation", "inheritance": "AD", "match": "20%" },
+          { "phenotype": "Left ventricular noncompaction", "inheritance": "AD", "match": "17%" }
         ],
         "hpoTerms": [
-          {
-            "code": "HP:0001644",
-            "name": "Dilated cardiomyopathy"
-          },
-          {
-            "code": "HP:0001711",
-            "name": "Ventricular arrhythmia"
-          },
-          {
-            "code": "HP:0011675",
-            "name": "Long QTc"
-          },
-          {
-            "code": "HP:0001638",
-            "name": "Cardiomyopathy"
-          }
-        ]
-      },
-      {
-        "id": "pulmonary",
-        "label": "Pulmonary",
-        "icon": "assets/icon-lung.svg",
-        "omimPhenotypes": [
-          {
-            "phenotype": "Primary ciliary dyskinesia",
-            "inheritance": "AR",
-            "match": "37%"
-          },
-          {
-            "phenotype": "Childhood interstitial lung disease",
-            "inheritance": "AD",
-            "match": "34%"
-          },
-          {
-            "phenotype": "Pulmonary fibrosis susceptibility",
-            "inheritance": "AD",
-            "match": "29%"
-          },
-          {
-            "phenotype": "Surfactant metabolism dysfunction",
-            "inheritance": "AR",
-            "match": "27%"
-          }
-        ],
-        "hpoTerms": [
-          {
-            "code": "HP:0002205",
-            "name": "Recurrent respiratory infections"
-          },
-          {
-            "code": "HP:0002094",
-            "name": "Dyspnea"
-          },
-          {
-            "code": "HP:0002783",
-            "name": "Bronchiectasis"
-          },
-          {
-            "code": "HP:0002787",
-            "name": "Pulmonary fibrosis"
-          }
-        ]
-      },
-      {
-        "id": "metabolic",
-        "label": "Metabolic",
-        "icon": "assets/icon-metabolism.svg",
-        "omimPhenotypes": [
-          {
-            "phenotype": "Methylmalonic acidemia",
-            "inheritance": "AR",
-            "match": "36%"
-          },
-          {
-            "phenotype": "Glycogen storage disease",
-            "inheritance": "AR",
-            "match": "33%"
-          },
-          {
-            "phenotype": "Mitochondrial disorder",
-            "inheritance": "AR",
-            "match": "29%"
-          },
-          {
-            "phenotype": "Urea cycle defect",
-            "inheritance": "AR",
-            "match": "24%"
-          }
-        ],
-        "hpoTerms": [
-          {
-            "code": "HP:0001943",
-            "name": "Metabolic acidosis"
-          },
-          {
-            "code": "HP:0003212",
-            "name": "Hyperammonemia"
-          },
-          {
-            "code": "HP:0002151",
-            "name": "Elevated serum lactate"
-          },
-          {
-            "code": "HP:0003128",
-            "name": "Lactic acidosis"
-          }
+          { "code": "HP:0001644", "name": "Dilated cardiomyopathy" },
+          { "code": "HP:0001711", "name": "Ventricular arrhythmia" },
+          { "code": "HP:0011675", "name": "Long QTc" },
+          { "code": "HP:0001638", "name": "Cardiomyopathy" },
+          { "code": "HP:0001712", "name": "Left ventricular hypertrophy" },
+          { "code": "HP:0001645", "name": "Sudden cardiac death" },
+          { "code": "HP:0004308", "name": "Ventricular tachycardia" },
+          { "code": "HP:0005110", "name": "Atrial fibrillation" },
+          { "code": "HP:0001635", "name": "Congestive heart failure" }
         ]
       },
       {
         "id": "hematologic",
-        "label": "Hematologic",
-        "icon": "assets/icon-blood.svg",
+        "label": "Blood and immune system",
+        "icon": "assets/organs/blood-immune-system.svg",
         "omimPhenotypes": [
-          {
-            "phenotype": "Diamond-Blackfan anemia",
-            "inheritance": "AD",
-            "match": "34%"
-          },
-          {
-            "phenotype": "Congenital neutropenia",
-            "inheritance": "AD",
-            "match": "29%"
-          },
-          {
-            "phenotype": "Thrombocytopenia 2",
-            "inheritance": "AD",
-            "match": "25%"
-          },
-          {
-            "phenotype": "Bone marrow failure",
-            "inheritance": "AD",
-            "match": "23%"
-          }
+          { "phenotype": "Diamond-Blackfan anemia", "inheritance": "AD", "match": "34%" },
+          { "phenotype": "Congenital neutropenia", "inheritance": "AD", "match": "29%" },
+          { "phenotype": "Thrombocytopenia 2", "inheritance": "AD", "match": "25%" },
+          { "phenotype": "Bone marrow failure", "inheritance": "AD", "match": "23%" },
+          { "phenotype": "Sickle cell disease", "inheritance": "AR", "match": "20%" },
+          { "phenotype": "Hemophilia B", "inheritance": "XLR", "match": "17%" },
+          { "phenotype": "Fanconi anemia complementation", "inheritance": "AR", "match": "14%" },
+          { "phenotype": "Von Willebrand disease type 1", "inheritance": "AD", "match": "12%" },
+          { "phenotype": "Hereditary spherocytosis", "inheritance": "AD", "match": "9%" }
         ],
         "hpoTerms": [
-          {
-            "code": "HP:0001871",
-            "name": "Thrombocytopenia"
-          },
-          {
-            "code": "HP:0001880",
-            "name": "Neutropenia"
-          },
-          {
-            "code": "HP:0001903",
-            "name": "Anemia"
-          },
-          {
-            "code": "HP:0005528",
-            "name": "Bone marrow hypocellularity"
-          }
+          { "code": "HP:0001871", "name": "Thrombocytopenia" },
+          { "code": "HP:0001880", "name": "Neutropenia" },
+          { "code": "HP:0001903", "name": "Anemia" },
+          { "code": "HP:0005528", "name": "Bone marrow hypocellularity" },
+          { "code": "HP:0001972", "name": "Macrocytic anemia" },
+          { "code": "HP:0004444", "name": "Spherocytosis" },
+          { "code": "HP:0001873", "name": "Thrombocytopenia" },
+          { "code": "HP:0001892", "name": "Abnormal bleeding" },
+          { "code": "HP:0002719", "name": "Recurrent infections" }
         ]
       },
       {
-        "id": "other",
-        "label": "Other",
-        "icon": "assets/icon-info.svg",
+        "id": "pulmonary",
+        "label": "Respiratory system",
+        "icon": "assets/organs/respiratory-system.svg",
         "omimPhenotypes": [
-          {
-            "phenotype": "Nonspecific syndromic disorder",
-            "inheritance": "AD",
-            "match": "18%"
-          },
-          {
-            "phenotype": "Neurodevelopmental syndrome",
-            "inheritance": "AD",
-            "match": "17%"
-          },
-          {
-            "phenotype": "Connective tissue disorder",
-            "inheritance": "AD",
-            "match": "15%"
-          },
-          {
-            "phenotype": "Undifferentiated syndrome",
-            "inheritance": "Unknown",
-            "match": "14%"
-          }
+          { "phenotype": "Primary ciliary dyskinesia", "inheritance": "AR", "match": "37%" },
+          { "phenotype": "Childhood interstitial lung disease", "inheritance": "AD", "match": "34%" },
+          { "phenotype": "Pulmonary fibrosis susceptibility", "inheritance": "AD", "match": "29%" },
+          { "phenotype": "Surfactant metabolism dysfunction", "inheritance": "AR", "match": "27%" },
+          { "phenotype": "Alpha-1-antitrypsin deficiency", "inheritance": "AR", "match": "24%" },
+          { "phenotype": "Cystic fibrosis lung disease", "inheritance": "AR", "match": "21%" },
+          { "phenotype": "Pulmonary alveolar proteinosis", "inheritance": "AR", "match": "18%" },
+          { "phenotype": "Hereditary hemorrhagic telangiectasia", "inheritance": "AD", "match": "15%" }
         ],
         "hpoTerms": [
-          {
-            "code": "HP:0012823",
-            "name": "Clinical modifier"
-          },
-          {
-            "code": "HP:0000118",
-            "name": "Phenotypic abnormality"
-          },
-          {
-            "code": "HP:0032443",
-            "name": "Clinical comment"
-          },
-          {
-            "code": "HP:0000001",
-            "name": "All"
-          }
+          { "code": "HP:0002205", "name": "Recurrent respiratory infections" },
+          { "code": "HP:0002094", "name": "Dyspnea" },
+          { "code": "HP:0002783", "name": "Bronchiectasis" },
+          { "code": "HP:0002787", "name": "Pulmonary fibrosis" },
+          { "code": "HP:0002835", "name": "Aspiration" },
+          { "code": "HP:0002795", "name": "Impaired gas exchange" },
+          { "code": "HP:0002107", "name": "Pneumothorax" },
+          { "code": "HP:0030828", "name": "Wheezing" },
+          { "code": "HP:0012735", "name": "Cough" }
+        ]
+      },
+      {
+        "id": "digestive",
+        "label": "Digestive system",
+        "icon": "assets/organs/digestive-system.svg",
+        "omimPhenotypes": [
+          { "phenotype": "Methylmalonic acidemia", "inheritance": "AR", "match": "36%" },
+          { "phenotype": "Glycogen storage disease", "inheritance": "AR", "match": "33%" },
+          { "phenotype": "Mitochondrial disorder", "inheritance": "AR", "match": "29%" },
+          { "phenotype": "Urea cycle defect", "inheritance": "AR", "match": "24%" },
+          { "phenotype": "Galactosemia", "inheritance": "AR", "match": "21%" },
+          { "phenotype": "Wilson disease", "inheritance": "AR", "match": "18%" },
+          { "phenotype": "Hereditary fructose intolerance", "inheritance": "AR", "match": "15%" },
+          { "phenotype": "Maple syrup urine disease", "inheritance": "AR", "match": "12%" },
+          { "phenotype": "Phenylketonuria", "inheritance": "AR", "match": "10%" }
+        ],
+        "hpoTerms": [
+          { "code": "HP:0001943", "name": "Metabolic acidosis" },
+          { "code": "HP:0002013", "name": "Vomiting" },
+          { "code": "HP:0002240", "name": "Hepatomegaly" },
+          { "code": "HP:0002014", "name": "Diarrhea" },
+          { "code": "HP:0001508", "name": "Failure to thrive" },
+          { "code": "HP:0001254", "name": "Lethargy" },
+          { "code": "HP:0003256", "name": "Abnormality of ammonia metabolism" },
+          { "code": "HP:0001942", "name": "Metabolic alkalosis" },
+          { "code": "HP:0003128", "name": "Lactic acidosis" },
+          { "code": "HP:0001399", "name": "Hepatic failure" }
+        ]
+      },
+      {
+        "id": "genitourinary",
+        "label": "Genitourinary system",
+        "icon": "assets/organs/genitourinary-system.svg",
+        "omimPhenotypes": [
+          { "phenotype": "Polycystic kidney disease", "inheritance": "AD", "match": "35%" },
+          { "phenotype": "Nephrotic syndrome", "inheritance": "AR", "match": "30%" },
+          { "phenotype": "Renal tubular acidosis", "inheritance": "AR", "match": "26%" },
+          { "phenotype": "Alport syndrome", "inheritance": "XLD", "match": "22%" },
+          { "phenotype": "Bartter syndrome", "inheritance": "AR", "match": "19%" },
+          { "phenotype": "Cystinosis", "inheritance": "AR", "match": "16%" },
+          { "phenotype": "Autosomal recessive PKD", "inheritance": "AR", "match": "13%" },
+          { "phenotype": "Nephrogenic diabetes insipidus", "inheritance": "XLR", "match": "10%" }
+        ],
+        "hpoTerms": [
+          { "code": "HP:0000083", "name": "Renal insufficiency" },
+          { "code": "HP:0000093", "name": "Proteinuria" },
+          { "code": "HP:0000107", "name": "Renal cysts" },
+          { "code": "HP:0000104", "name": "Renal agenesis" },
+          { "code": "HP:0000112", "name": "Nephropathy" },
+          { "code": "HP:0000790", "name": "Hematuria" },
+          { "code": "HP:0000822", "name": "Hypertension" },
+          { "code": "HP:0003774", "name": "Stage 5 chronic kidney disease" },
+          { "code": "HP:0012622", "name": "Chronic kidney disease" }
         ]
       }
     ],
-    "hpoLogo": "assets/hpo-placeholder.svg"
+    "hpoLogo": "assets/hpo-logo.png"
   },
   "family": {
-    "rows": [
-      {
-        "status": "Proband",
-        "badge": {
-          "text": "De Novo",
-          "tone": "rose"
+    "default": {
+      "members": [
+        {
+          "id": "proband",
+          "displayName": "Proband (Patient)",
+          "sampleId": "PR_9921",
+          "icon": "proband",
+          "badge": {
+            "text": "De Novo",
+            "tone": "rose"
+          },
+          "gt": "0/1",
+          "vaf": "0.48",
+          "cov": "112x",
+          "qual": "99",
+          "featured": true
         },
-        "gt": "0/1",
-        "vaf": "0.52",
-        "cov": "98",
-        "qual": "85"
+        {
+          "id": "paternal",
+          "displayName": "Paternal (Father)",
+          "sampleId": "FA_9922",
+          "icon": "paternal",
+          "badge": {
+            "text": "Reference",
+            "tone": "slate"
+          },
+          "gt": "0/0",
+          "vaf": "0.00",
+          "cov": "98x",
+          "qual": "99"
+        },
+        {
+          "id": "maternal",
+          "displayName": "Maternal (Mother)",
+          "sampleId": "MO_9923",
+          "icon": "maternal",
+          "badge": {
+            "text": "Reference",
+            "tone": "slate"
+          },
+          "gt": "0/0",
+          "vaf": "0.00",
+          "cov": "124x",
+          "qual": "100"
+        }
+      ]
+    },
+    "variants": {
+      "2-104856069-T-TG": {
+        "members": [
+          {
+            "id": "proband",
+            "displayName": "Proband (Patient)",
+            "sampleId": "PR_9921",
+            "icon": "proband",
+            "badge": {
+              "text": "De Novo",
+              "tone": "rose"
+            },
+            "gt": "0/1",
+            "vaf": "0.48",
+            "cov": "112x",
+            "qual": "99",
+            "featured": true
+          },
+          {
+            "id": "paternal",
+            "displayName": "Paternal (Father)",
+            "sampleId": "FA_9922",
+            "icon": "paternal",
+            "badge": {
+              "text": "Reference",
+              "tone": "slate"
+            },
+            "gt": "0/0",
+            "vaf": "0.00",
+            "cov": "98x",
+            "qual": "99"
+          },
+          {
+            "id": "maternal",
+            "displayName": "Maternal (Mother)",
+            "sampleId": "MO_9923",
+            "icon": "maternal",
+            "badge": {
+              "text": "Reference",
+              "tone": "slate"
+            },
+            "gt": "0/0",
+            "vaf": "0.00",
+            "cov": "124x",
+            "qual": "100"
+          }
+        ]
       },
-      {
-        "status": "Paternal",
-        "badge": {
-          "text": "Carrier",
-          "tone": "amber"
-        },
-        "gt": "0/1",
-        "vaf": "0.48",
-        "cov": "125",
-        "qual": "99"
+      "16-104856254-T-TG": {
+        "members": [
+          {
+            "id": "proband",
+            "displayName": "Proband (Patient)",
+            "sampleId": "PR_9921",
+            "icon": "proband",
+            "badge": {
+              "text": "Paternal",
+              "tone": "indigo"
+            },
+            "gt": "0/1",
+            "vaf": "0.51",
+            "cov": "109x",
+            "qual": "98",
+            "featured": true
+          },
+          {
+            "id": "paternal",
+            "displayName": "Paternal (Father)",
+            "sampleId": "FA_9922",
+            "icon": "paternal",
+            "badge": {
+              "text": "Carrier",
+              "tone": "indigo"
+            },
+            "gt": "0/1",
+            "vaf": "0.49",
+            "cov": "101x",
+            "qual": "99"
+          },
+          {
+            "id": "maternal",
+            "displayName": "Maternal (Mother)",
+            "sampleId": "MO_9923",
+            "icon": "maternal",
+            "badge": {
+              "text": "Reference",
+              "tone": "slate"
+            },
+            "gt": "0/0",
+            "vaf": "0.00",
+            "cov": "127x",
+            "qual": "99"
+          }
+        ]
       },
-      {
-        "status": "Maternal",
-        "badge": {
-          "text": "Reference",
-          "tone": "blue"
-        },
-        "gt": "0/0",
-        "vaf": "0.00",
-        "cov": "110",
-        "qual": "100"
+      "2-104856291-C-A": {
+        "members": [
+          {
+            "id": "proband",
+            "displayName": "Proband (Patient)",
+            "sampleId": "PR_9921",
+            "icon": "proband",
+            "badge": {
+              "text": "Maternal",
+              "tone": "blue"
+            },
+            "gt": "0/1",
+            "vaf": "0.44",
+            "cov": "117x",
+            "qual": "97",
+            "featured": true
+          },
+          {
+            "id": "paternal",
+            "displayName": "Paternal (Father)",
+            "sampleId": "FA_9922",
+            "icon": "paternal",
+            "badge": {
+              "text": "Reference",
+              "tone": "slate"
+            },
+            "gt": "0/0",
+            "vaf": "0.00",
+            "cov": "103x",
+            "qual": "98"
+          },
+          {
+            "id": "maternal",
+            "displayName": "Maternal (Mother)",
+            "sampleId": "MO_9923",
+            "icon": "maternal",
+            "badge": {
+              "text": "Carrier",
+              "tone": "blue"
+            },
+            "gt": "0/1",
+            "vaf": "0.47",
+            "cov": "121x",
+            "qual": "100"
+          }
+        ]
+      },
+      "7-104856328-G-A": {
+        "members": [
+          {
+            "id": "proband",
+            "displayName": "Proband (Patient)",
+            "sampleId": "PR_9921",
+            "icon": "proband",
+            "badge": {
+              "text": "Recessive",
+              "tone": "amber"
+            },
+            "gt": "1/1",
+            "vaf": "0.96",
+            "cov": "118x",
+            "qual": "99",
+            "featured": true
+          },
+          {
+            "id": "paternal",
+            "displayName": "Paternal (Father)",
+            "sampleId": "FA_9922",
+            "icon": "paternal",
+            "badge": {
+              "text": "Carrier",
+              "tone": "amber"
+            },
+            "gt": "0/1",
+            "vaf": "0.50",
+            "cov": "104x",
+            "qual": "98"
+          },
+          {
+            "id": "maternal",
+            "displayName": "Maternal (Mother)",
+            "sampleId": "MO_9923",
+            "icon": "maternal",
+            "badge": {
+              "text": "Carrier",
+              "tone": "amber"
+            },
+            "gt": "0/1",
+            "vaf": "0.52",
+            "cov": "126x",
+            "qual": "100"
+          }
+        ]
+      },
+      "17-104856365-T-C": {
+        "members": [
+          {
+            "id": "proband",
+            "displayName": "Proband (Patient)",
+            "sampleId": "PR_9921",
+            "icon": "proband",
+            "badge": {
+              "text": "Observed",
+              "tone": "indigo"
+            },
+            "gt": "0/1",
+            "vaf": "0.36",
+            "cov": "106x",
+            "qual": "95",
+            "featured": true
+          },
+          {
+            "id": "paternal",
+            "displayName": "Paternal (Father)",
+            "sampleId": "FA_9922",
+            "icon": "paternal",
+            "badge": {
+              "text": "Reference",
+              "tone": "slate"
+            },
+            "gt": "0/0",
+            "vaf": "0.00",
+            "cov": "92x",
+            "qual": "97"
+          },
+          {
+            "id": "maternal",
+            "displayName": "Maternal (Mother)",
+            "sampleId": "MO_9923",
+            "icon": "maternal",
+            "badge": {
+              "text": "Low level",
+              "tone": "blue"
+            },
+            "gt": "0/1",
+            "vaf": "0.12",
+            "cov": "131x",
+            "qual": "98"
+          }
+        ]
       }
-    ]
+    }
   },
   "cohort": {
-    "rows": [
-      {
-        "sampleId": "COH_0012",
-        "genotype": "0/1",
-        "frequency": ""
+    "default": {
+      "cohortSize": 612,
+      "hitCount": 0,
+      "frequency": "0.00%",
+      "matchingSampleIds": []
+    },
+    "variants": {
+      "2-104856069-T-TG": {
+        "cohortSize": 612,
+        "hitCount": 3,
+        "frequency": "0.50%",
+        "matchingSampleIds": [
+          "COH_0012",
+          "COH_0045",
+          "COH_0091"
+        ]
       },
-      {
-        "sampleId": "COH_0045",
-        "genotype": "0/1",
-        "frequency": "0.5%"
+      "16-104856254-T-TG": {
+        "cohortSize": 612,
+        "hitCount": 2,
+        "frequency": "0.32%",
+        "matchingSampleIds": [
+          "COH_0178",
+          "COH_1022"
+        ]
       },
-      {
-        "sampleId": "COH_0091",
-        "genotype": "1/1",
-        "frequency": ""
+      "2-104856291-C-A": {
+        "cohortSize": 612,
+        "hitCount": 1,
+        "frequency": "0.11%",
+        "matchingSampleIds": [
+          "COH_0874"
+        ]
+      },
+      "7-104856328-G-A": {
+        "cohortSize": 612,
+        "hitCount": 0,
+        "frequency": "0.00%",
+        "matchingSampleIds": []
+      },
+      "17-104856365-T-C": {
+        "cohortSize": 612,
+        "hitCount": 4,
+        "frequency": "0.67%",
+        "matchingSampleIds": [
+          "COH_0008",
+          "COH_0341",
+          "COH_0775",
+          "COH_1211"
+        ]
       }
-    ]
+    }
   },
   "predictions": {
     "tabs": [
+      {
+        "id": "inheritance",
+        "label": "INHERITANCE"
+      },
       {
         "id": "prediction",
         "label": "PREDICTION",
@@ -3843,9 +4424,15 @@ const FALLBACK_DATA = {
 const state = {
   genesPage: 1,
   variantsPage: 1,
+  selectedGeneRow: null,
+  selectedVariantRow: null,
   phenotypeOffset: 0,
   activePhenotypeId: null,
-  activePredictionTab: 'prediction',
+  selectedOmimIndex: 0,
+  activeOrgans: ['head-neck', 'neurologic'],
+  activePredictionTab: 'inheritance',
+  geneSummaryExpanded: false,
+  geneSummaryKey: null,
   nav: 'home',
   geneQuery: '',
   data: {}
@@ -3872,29 +4459,97 @@ async function loadJson(key, url) {
 }
 
 async function boot() {
+  const ring = document.querySelector('.app-logo-ring');
+  ring.classList.add('spinning');
+
   const entries = await Promise.all(
     Object.entries(DATA_MAP).map(async ([key, url]) => [key, await loadJson(key, url)])
   );
   state.data = Object.fromEntries(entries);
-  state.activePhenotypeId = state.data.phenotypes.slides.find(s => s.active)?.id || state.data.phenotypes.slides[0].id;
+  state.data.variants.pageSize = 20;
+  state.selectedGeneRow = getDefaultSelectedRow(state.data.genes.rows);
+  state.selectedVariantRow = getDefaultSelectedRow(state.data.variants.rows);
+  const visibleSlides = state.data.phenotypes.slides.filter(s => state.activeOrgans.includes(s.id));
+  state.activePhenotypeId = visibleSlides.find(s => s.active)?.id || visibleSlides[0]?.id || state.data.phenotypes.slides[0].id;
+  wireTableScrollControls('genes');
+  wireTableScrollControls('variants');
   wireSearch();
   wirePills();
   wirePredictionTabs();
   renderAll();
+
+  ring.classList.remove('spinning');
 }
 
 function renderAll() {
   renderGeneTable();
   renderVariantTable();
   renderPhenotypePanel();
-  renderFamily();
-  renderCohort();
   renderPredictionTab();
 }
 
 function paginateRows(rows, page, pageSize) {
   const start = (page - 1) * pageSize;
   return rows.slice(start, start + pageSize);
+}
+
+function getDefaultSelectedRow(rows) {
+  return rows.find(row => row.selected) || rows[0] || null;
+}
+
+function hasActiveTextSelection() {
+  const selection = window.getSelection();
+  return Boolean(selection && String(selection).trim());
+}
+
+function ensureVisibleSelection(rows, visibleRows, currentRow) {
+  if (!rows.length || !visibleRows.length) return null;
+  if (!currentRow || !rows.includes(currentRow)) return visibleRows[0];
+  return visibleRows.includes(currentRow) ? currentRow : visibleRows[0];
+}
+
+function getTableScrollElements(section) {
+  return {
+    scroller: document.querySelector(`.${section}-card .table-scroll`),
+    controls: document.querySelector(`#${section}-scroll-controls`),
+    upBtn: document.querySelector(`#${section}-scroll-up`),
+    downBtn: document.querySelector(`#${section}-scroll-down`)
+  };
+}
+
+function updateTableScrollControls(section) {
+  const { scroller, controls, upBtn, downBtn } = getTableScrollElements(section);
+  if (!scroller || !controls || !upBtn || !downBtn) return;
+
+  const maxScroll = Math.max(0, scroller.scrollHeight - scroller.clientHeight);
+  const hasOverflow = maxScroll > 2;
+  controls.classList.toggle('is-hidden', !hasOverflow);
+  upBtn.disabled = !hasOverflow || scroller.scrollTop <= 2;
+  downBtn.disabled = !hasOverflow || scroller.scrollTop >= maxScroll - 2;
+}
+
+function scrollTableRows(section, direction) {
+  const { scroller } = getTableScrollElements(section);
+  if (!scroller) return;
+
+  const firstRow = scroller.querySelector('tbody tr');
+  const rowHeight = firstRow ? firstRow.getBoundingClientRect().height : 36;
+  scroller.scrollBy({
+    top: direction * rowHeight * 3,
+    behavior: 'smooth'
+  });
+}
+
+function wireTableScrollControls(section) {
+  const { scroller, upBtn, downBtn } = getTableScrollElements(section);
+  if (!scroller || !upBtn || !downBtn || scroller.dataset.scrollWired === 'true') return;
+
+  scroller.dataset.scrollWired = 'true';
+  scroller.addEventListener('scroll', () => updateTableScrollControls(section), { passive: true });
+  upBtn.addEventListener('click', () => scrollTableRows(section, -1));
+  downBtn.addEventListener('click', () => scrollTableRows(section, 1));
+  window.addEventListener('resize', () => updateTableScrollControls(section));
+  updateTableScrollControls(section);
 }
 
 function buildCompactPagination(totalPages, current) {
@@ -3964,18 +4619,27 @@ function renderGeneTable() {
   const totalFilteredPages = Math.max(1, Math.ceil(filteredRows.length / data.pageSize));
   if (state.genesPage > totalFilteredPages) state.genesPage = 1;
   const pageRows = paginateRows(filteredRows, state.genesPage, data.pageSize);
-  tbody.innerHTML = pageRows.map(row => `
-    <tr>
-      <td><span class="${row.selected ? 'cell-selected' : ''}">${row.gene}</span></td>
+  state.selectedGeneRow = ensureVisibleSelection(filteredRows, pageRows, state.selectedGeneRow);
+  tbody.innerHTML = pageRows.map((row, index) => `
+    <tr class="data-row${row === state.selectedGeneRow ? ' is-selected' : ''}" data-row-index="${index}" aria-selected="${row === state.selectedGeneRow}">
+      <td>${row === state.selectedGeneRow ? `<span class="cell-selected-wrap"><span class="cell-selected">${row.gene}</span><span class="cell-selected-bg" aria-hidden="true"></span></span>` : row.gene}</td>
       <td>${row.rank}</td>
       <td title="${row.synonyms}">${row.synonyms}</td>
       <td title="${row.ensembl}">${row.ensembl}</td>
       <td>${row.ncbi}</td>
-      <td>${row.synonymous}</td>
-      <td>${row.missense}</td>
-      <td>${row.lof}</td>
+      <td title="${row.clingenClassification || ''}">${row.clingenClassification || '-'}</td>
+      <td>${row.moi || '-'}</td>
+      <td>${row.hiScore || '-'}</td>
+      <td>${row.tsScore || '-'}</td>
     </tr>
   `).join('');
+  tbody.querySelectorAll('.data-row').forEach(tr => {
+    tr.addEventListener('click', () => {
+      if (hasActiveTextSelection()) return;
+      state.selectedGeneRow = pageRows[parseInt(tr.dataset.rowIndex, 10)];
+      renderGeneTable();
+    });
+  });
 
   const totalPages = Math.max(1, Math.ceil(filteredRows.length / data.pageSize));
   const start = filteredRows.length ? (state.genesPage - 1) * data.pageSize + 1 : 0;
@@ -3985,16 +4649,21 @@ function renderGeneTable() {
     : `Showing ${start} to ${end} of ${data.totalCount} genes`;
   renderPagination(document.querySelector('#genes-pagination'), totalPages, state.genesPage, (page) => {
     state.genesPage = page;
+    const { scroller } = getTableScrollElements('genes');
+    if (scroller) scroller.scrollTop = 0;
     renderGeneTable();
   });
+  renderGnomadGeneSummary();
+  requestAnimationFrame(() => updateTableScrollControls('genes'));
 }
 
 function renderVariantTable() {
   const data = state.data.variants;
   const tbody = document.querySelector('#variants-tbody');
   const pageRows = paginateRows(data.rows, state.variantsPage, data.pageSize);
-  tbody.innerHTML = pageRows.map(row => `
-    <tr>
+  state.selectedVariantRow = ensureVisibleSelection(data.rows, pageRows, state.selectedVariantRow);
+  tbody.innerHTML = pageRows.map((row, index) => `
+    <tr class="data-row${row === state.selectedVariantRow ? ' is-selected' : ''}" data-row-index="${index}" aria-selected="${row === state.selectedVariantRow}">
       <td>${row.variant}</td>
       <td>${row.transcript}</td>
       <td title="${row.hgvsc}">${row.hgvsc}</td>
@@ -4003,18 +4672,30 @@ function renderVariantTable() {
       <td class="mono">${row.gnomad}</td>
     </tr>
   `).join('');
+  tbody.querySelectorAll('.data-row').forEach(tr => {
+    tr.addEventListener('click', () => {
+      if (hasActiveTextSelection()) return;
+      state.selectedVariantRow = pageRows[parseInt(tr.dataset.rowIndex, 10)];
+      renderVariantTable();
+      renderPredictionTab();
+    });
+  });
 
   const totalPages = Math.ceil(data.totalCount / data.pageSize);
   document.querySelector('#variants-count').textContent = `Showing ${(state.variantsPage - 1) * data.pageSize + 1} to ${Math.min(state.variantsPage * data.pageSize, data.totalCount)} of ${data.totalCount} variants`;
   renderPagination(document.querySelector('#variants-pagination'), totalPages, state.variantsPage, (page) => {
     state.variantsPage = page;
+    const { scroller } = getTableScrollElements('variants');
+    if (scroller) scroller.scrollTop = 0;
     renderVariantTable();
+    renderPredictionTab();
   });
+  requestAnimationFrame(() => updateTableScrollControls('variants'));
 }
 
 function renderPhenotypePanel() {
   const data = state.data.phenotypes;
-  const slides = data.slides;
+  const slides = data.slides.filter(s => state.activeOrgans.includes(s.id));
   const hpoLogo = document.querySelector('.hpo-logo');
   if (hpoLogo && data.hpoLogo) hpoLogo.src = data.hpoLogo;
   const itemsVisible = data.itemsVisible || 4;
@@ -4032,32 +4713,58 @@ function renderPhenotypePanel() {
   track.querySelectorAll('.icon-chip').forEach(btn => {
     btn.addEventListener('click', () => {
       state.activePhenotypeId = btn.dataset.id;
+      state.selectedOmimIndex = 0;
       renderPhenotypePanel();
     });
   });
 
-  document.querySelector('#carousel-prev').disabled = state.phenotypeOffset === 0;
-  document.querySelector('#carousel-next').disabled = state.phenotypeOffset >= maxOffset;
-  document.querySelector('#carousel-prev').onclick = () => {
+  const prevBtn = document.querySelector('#carousel-prev');
+  const nextBtn = document.querySelector('#carousel-next');
+  const needsScroll = slides.length > itemsVisible;
+  prevBtn.style.display = needsScroll ? '' : 'none';
+  nextBtn.style.display = needsScroll ? '' : 'none';
+  prevBtn.disabled = state.phenotypeOffset === 0;
+  nextBtn.disabled = state.phenotypeOffset >= maxOffset;
+  prevBtn.onclick = () => {
     state.phenotypeOffset = Math.max(0, state.phenotypeOffset - 1);
     renderPhenotypePanel();
   };
-  document.querySelector('#carousel-next').onclick = () => {
+  nextBtn.onclick = () => {
     state.phenotypeOffset = Math.min(maxOffset, state.phenotypeOffset + 1);
     renderPhenotypePanel();
   };
 
   const active = slides.find(s => s.id === state.activePhenotypeId) || slides[0];
 
-  document.querySelector('#omim-tbody').innerHTML = active.omimPhenotypes.map(row => `
-    <tr>
+  const omimTbody = document.querySelector('#omim-tbody');
+  omimTbody.innerHTML = active.omimPhenotypes.map((row, i) => `
+    <tr class="omim-row${i === state.selectedOmimIndex ? ' is-selected' : ''}" data-idx="${i}">
       <td>${row.phenotype}</td>
       <td>${row.inheritance}</td>
       <td>${row.match}</td>
     </tr>
   `).join('');
 
-  document.querySelector('#hpo-tbody').innerHTML = active.hpoTerms.map(row => `
+  omimTbody.querySelectorAll('.omim-row').forEach(tr => {
+    tr.addEventListener('click', () => {
+      if (hasActiveTextSelection()) return;
+      state.selectedOmimIndex = parseInt(tr.dataset.idx, 10);
+      renderPhenotypePanel();
+    });
+  });
+
+  /* Each OMIM phenotype shows a rotating window of HPO terms so that
+     different phenotypes surface different (but overlapping) HPOs. */
+  const allHpo = active.hpoTerms;
+  const hpoCount = allHpo.length;
+  const windowSize = Math.min(5, hpoCount);
+  const start = state.selectedOmimIndex % hpoCount;
+  const selectedHpos = [];
+  for (let i = 0; i < windowSize; i++) {
+    selectedHpos.push(allHpo[(start + i) % hpoCount]);
+  }
+
+  document.querySelector('#hpo-tbody').innerHTML = selectedHpos.map(row => `
     <tr>
       <td><a class="link" href="#">${row.code}</a></td>
       <td>${row.name}</td>
@@ -4065,30 +4772,346 @@ function renderPhenotypePanel() {
   `).join('');
 }
 
-function renderFamily() {
-  const rows = state.data.family.rows;
-  document.querySelector('#family-tbody').innerHTML = rows.map(r => `
+function parseConstraintSeries(value, category) {
+  const parts = String(value || '').split('/');
+  const [expected = '', observed = '', metric = '', oe = ''] = parts;
+  const metricLabel = category === 'lof' ? 'pLI' : 'Z';
+  return {
+    expected: expected || 'NA',
+    observed: observed || 'NA',
+    metricLabel,
+    metricValue: metric || 'NA',
+    oe: oe || 'NA'
+  };
+}
+
+function getGnomadRowsForGene(geneRow) {
+  if (!geneRow) return [];
+  return [
+    {
+      label: 'Synonymous',
+      ...parseConstraintSeries(geneRow.synonymous, 'synonymous')
+    },
+    {
+      label: 'Missense',
+      ...parseConstraintSeries(geneRow.missense, 'missense')
+    },
+    {
+      label: 'LoF',
+      ...parseConstraintSeries(geneRow.lof, 'lof')
+    }
+  ];
+}
+
+function getGeneSummaryText(geneRow) {
+  if (!geneRow) return 'No gene selected.';
+
+  return `The ${geneRow.gene} gene provides instructions for making a protein that supports normal cellular function and development. This gene is especially relevant in tissues that depend on tightly controlled gene activity, and disruption can contribute to disease-related phenotypes.`;
+}
+
+function buildCollapsedSummary(text, maxLength = 120) {
+  if (text.length <= maxLength) {
+    return { preview: text, expandable: false };
+  }
+
+  const preview = text.slice(0, maxLength).replace(/\s+\S*$/, '').trimEnd();
+  return {
+    preview: `${preview}...`,
+    expandable: true
+  };
+}
+
+function renderGnomadGeneSummary() {
+  const titleHost = document.querySelector('#gnomad-gene-title');
+  const marrvelLink = document.querySelector('#marrvel-link');
+  const metaHost = document.querySelector('#gnomad-gene-meta');
+  const tbody = document.querySelector('#gnomad-gene-tbody');
+  const geneRow = state.selectedGeneRow;
+
+  if (!titleHost || !metaHost || !tbody) return;
+
+  if (!geneRow) {
+    titleHost.textContent = 'GENE SUMMARY';
+    if (marrvelLink) marrvelLink.href = 'https://marrvel.org/';
+    metaHost.textContent = getGeneSummaryText(null);
+    tbody.innerHTML = '';
+    state.geneSummaryExpanded = false;
+    state.geneSummaryKey = null;
+    return;
+  }
+
+  const geneKey = geneRow.gene;
+  if (state.geneSummaryKey !== geneKey) {
+    state.geneSummaryExpanded = false;
+    state.geneSummaryKey = geneKey;
+  }
+
+  const fullSummary = getGeneSummaryText(geneRow);
+  const { preview, expandable } = buildCollapsedSummary(fullSummary);
+  const summaryText = state.geneSummaryExpanded ? fullSummary : preview;
+
+  titleHost.textContent = 'GENE SUMMARY';
+  if (marrvelLink) marrvelLink.href = `https://marrvel.org/human/gene/${geneRow.ncbi}`;
+  metaHost.innerHTML = `
+    <span class="gnomad-summary-text">${summaryText}</span>
+    ${expandable ? `<button type="button" class="summary-toggle">${state.geneSummaryExpanded ? 'Less' : 'More'}</button>` : ''}
+  `;
+
+  const toggle = metaHost.querySelector('.summary-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      state.geneSummaryExpanded = !state.geneSummaryExpanded;
+      renderGnomadGeneSummary();
+    });
+  }
+
+  tbody.innerHTML = getGnomadRowsForGene(geneRow).map(row => `
     <tr>
-      <td>${r.status} ${
-        r.badge ? `<span class="badge ${r.badge.tone}">${r.badge.text}</span>` : ''
-      }</td>
-      <td>${r.gt}</td>
-      <td>${r.vaf}</td>
-      <td>${r.cov}</td>
-      <td>${r.qual}</td>
+      <td>${row.label}</td>
+      <td>${row.expected}</td>
+      <td>${row.observed}</td>
+      <td>${row.metricLabel}=${row.metricValue}</td>
+      <td>${row.oe}</td>
     </tr>
   `).join('');
 }
 
-function renderCohort() {
-  const rows = state.data.cohort.rows;
-  document.querySelector('#cohort-tbody').innerHTML = rows.map(r => `
-    <tr>
-      <td>${r.sampleId}</td>
-      <td>${r.genotype}</td>
-      <td>${r.frequency}</td>
-    </tr>
-  `).join('');
+function formatVafPercent(vaf) {
+  const numericVaf = Number(vaf);
+  if (Number.isFinite(numericVaf)) {
+    return `${Math.round(numericVaf * 100)}%`;
+  }
+  return vaf || 'NA';
+}
+
+function parsePercentValue(value) {
+  const numeric = Number.parseFloat(String(value || '').replace('%', '').trim());
+  return Number.isFinite(numeric) ? numeric : null;
+}
+
+function getVariantScopedData(container, variantKey) {
+  if (!container) return null;
+  if (variantKey && container.variants && container.variants[variantKey]) {
+    return container.variants[variantKey];
+  }
+  return container.default || container;
+}
+
+function getInheritanceSectionIcon(kind) {
+  if (kind === 'family') {
+    return `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="8" r="5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `;
+  }
+  return `
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 21V3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19 21V9" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M5 21v-6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `;
+}
+
+function getInheritanceMemberIcon(kind) {
+  if (kind === 'proband') {
+    return `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M12 11.5v8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        <path d="M8.5 15.5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+    `;
+  }
+  if (kind === 'paternal') {
+    return `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="10" cy="14" r="4.25" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M13 11 19 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        <path d="M15.5 5H19v3.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `;
+  }
+  if (kind === 'maternal') {
+    return `
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M12 11v8m-3.5-4.5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+    `;
+  }
+  return `
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="7.5" r="3" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M6.5 18a5.5 5.5 0 0 1 11 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </svg>
+  `;
+}
+
+const FAMILY_PHENOTYPE_SUMMARIES = {
+  default: 'Global developmental delay, hypotonia, and intermittent seizure-like episodes remain the leading phenotype features in the proband.',
+  '2-104856069-T-TG': 'Global developmental delay, hypotonia, and intermittent seizure-like episodes remain the leading phenotype features in the proband.',
+  '16-104856254-T-TG': 'Speech delay, behavioral dysregulation, and mild motor incoordination are the main phenotype features noted in the proband.',
+  '2-104856291-C-A': 'Developmental delay with autism-spectrum features and sensory dysregulation best matches the proband phenotype profile.',
+  '7-104856328-G-A': 'The proband shows early-onset neurodevelopmental impairment with severe hypotonia and a more syndromic presentation.',
+  '17-104856365-T-C': 'The proband phenotype includes developmental delay and episodic neurologic findings with partial familial overlap.'
+};
+
+const FAMILY_PHENOTYPE_BADGES = {
+  default: {
+    proband: { text: 'Affected', tone: 'rose' },
+    paternal: { text: 'Unaffected', tone: 'slate' },
+    maternal: { text: 'Unaffected', tone: 'slate' }
+  },
+  '2-104856069-T-TG': {
+    proband: { text: 'Affected', tone: 'rose' },
+    paternal: { text: 'Unaffected', tone: 'slate' },
+    maternal: { text: 'Unaffected', tone: 'slate' }
+  },
+  '16-104856254-T-TG': {
+    proband: { text: 'Affected', tone: 'rose' },
+    paternal: { text: 'Unaffected', tone: 'slate' },
+    maternal: { text: 'Unaffected', tone: 'slate' }
+  },
+  '2-104856291-C-A': {
+    proband: { text: 'Affected', tone: 'rose' },
+    paternal: { text: 'Unaffected', tone: 'slate' },
+    maternal: { text: 'Mildly affected', tone: 'blue' }
+  },
+  '7-104856328-G-A': {
+    proband: { text: 'Affected', tone: 'rose' },
+    paternal: { text: 'Unaffected', tone: 'slate' },
+    maternal: { text: 'Unaffected', tone: 'slate' }
+  },
+  '17-104856365-T-C': {
+    proband: { text: 'Affected', tone: 'rose' },
+    paternal: { text: 'Unaffected', tone: 'slate' },
+    maternal: { text: 'Possibly affected', tone: 'blue' }
+  }
+};
+
+function getFamilyPhenotypeSummary(variantKey) {
+  return FAMILY_PHENOTYPE_SUMMARIES[variantKey] || FAMILY_PHENOTYPE_SUMMARIES.default;
+}
+
+function getFamilyPhenotypeBadge(variantKey, memberId) {
+  const scoped = FAMILY_PHENOTYPE_BADGES[variantKey] || FAMILY_PHENOTYPE_BADGES.default;
+  return scoped[memberId] || { text: 'Unknown', tone: 'slate' };
+}
+
+function getFamilyDisplayName(row) {
+  const rawName = row.displayName || row.status || row.id || 'Unknown';
+  return String(rawName).replace(/\s*\([^)]*\)\s*$/, '');
+}
+
+function renderInheritanceTab(detailHost) {
+  const variantKey = state.selectedVariantRow?.variant || 'No variant selected';
+  const familyContext = getVariantScopedData(state.data.family, state.selectedVariantRow?.variant) || {};
+  const cohortContext = getVariantScopedData(state.data.cohort, state.selectedVariantRow?.variant) || {};
+  const familyRows = familyContext.members || familyContext.rows || [];
+  const phenotypeSummary = getFamilyPhenotypeSummary(state.selectedVariantRow?.variant);
+  const cohortFrequency = cohortContext.frequency || '0.00%';
+  const cohortSize = cohortContext.cohortSize || 'NA';
+  const matchingSampleIds = cohortContext.matchingSampleIds || [];
+  const cohortHitCount = Number.isFinite(Number(cohortContext.hitCount))
+    ? Number(cohortContext.hitCount)
+    : matchingSampleIds.length;
+
+  detailHost.innerHTML = `
+    <div class="inheritance-layout">
+      <section class="inheritance-panel">
+        <div class="inheritance-section-head">
+          <span class="inheritance-section-icon">${getInheritanceSectionIcon('family')}</span>
+          <div class="tab-headline">Family Segregation</div>
+        </div>
+        <div class="inheritance-phenotype-summary">
+          <div class="inheritance-phenotype-title">Phenotype</div>
+          <p>${phenotypeSummary}</p>
+        </div>
+        <div class="inheritance-family-stack">
+          ${familyRows.map(row => {
+            const phenotypeBadge = getFamilyPhenotypeBadge(state.selectedVariantRow?.variant, row.id);
+            return `
+            <article class="inheritance-member-card${row.featured ? ' is-featured' : ''}">
+              <div class="inheritance-member-top">
+                <div class="inheritance-member-ident">
+                  <div class="inheritance-member-icon">${getInheritanceMemberIcon(row.icon || row.id)}</div>
+                  <div>
+                    <div class="inheritance-member-name">${getFamilyDisplayName(row)}</div>
+                    <div class="inheritance-member-sample">SAMPLE_ID: ${row.sampleId || 'NA'}</div>
+                  </div>
+                </div>
+                <div class="inheritance-member-badges">
+                  ${row.badge ? `<span class="badge ${row.badge.tone}">${row.badge.text}</span>` : ''}
+                  <span class="badge ${phenotypeBadge.tone}">${phenotypeBadge.text}</span>
+                </div>
+              </div>
+              <div class="inheritance-genotype-grid">
+                <div class="inheritance-genotype-stat">
+                  <div class="inheritance-genotype-label">GT</div>
+                  <div class="inheritance-genotype-value">${row.gt || 'NA'}</div>
+                </div>
+                <div class="inheritance-genotype-stat">
+                  <div class="inheritance-genotype-label">VAF</div>
+                  <div class="inheritance-genotype-value">${formatVafPercent(row.vaf)}</div>
+                </div>
+                <div class="inheritance-genotype-stat">
+                  <div class="inheritance-genotype-label">COV</div>
+                  <div class="inheritance-genotype-value">${row.cov || 'NA'}</div>
+                </div>
+                <div class="inheritance-genotype-stat">
+                  <div class="inheritance-genotype-label">QUAL</div>
+                  <div class="inheritance-genotype-value">${row.qual || 'NA'}</div>
+                </div>
+              </div>
+            </article>
+          `;
+          }).join('')}
+        </div>
+      </section>
+
+      <section class="inheritance-panel inheritance-panel-cohort">
+        <div class="inheritance-section-head">
+          <span class="inheritance-section-icon">${getInheritanceSectionIcon('cohort')}</span>
+          <div class="tab-headline">Cohort Context</div>
+        </div>
+        <div class="inheritance-cohort-callout">
+          <div class="inheritance-cohort-callout-line">
+            <strong>${cohortHitCount}</strong> cohort sample${cohortHitCount === 1 ? '' : 's'} currently carry this exact variant.
+          </div>
+          <div class="inheritance-cohort-callout-line">
+            Cohort size: <strong>${cohortSize}</strong>. Reported frequency: <strong>${cohortFrequency}</strong>.
+          </div>
+        </div>
+        <div class="inheritance-cohort-summary">
+          <div class="inheritance-cohort-metric">
+            <div class="inheritance-cohort-label">Variant</div>
+            <div class="inheritance-cohort-value">${variantKey}</div>
+          </div>
+          <div class="inheritance-cohort-metric">
+            <div class="inheritance-cohort-label">Cohort Hits</div>
+            <div class="inheritance-cohort-value">${cohortHitCount}</div>
+          </div>
+          <div class="inheritance-cohort-metric">
+            <div class="inheritance-cohort-label">Frequency</div>
+            <div class="inheritance-cohort-value">${cohortFrequency}</div>
+          </div>
+        </div>
+        <div class="inheritance-sample-card">
+          <div class="inheritance-sample-card-title">Matching Sample IDs</div>
+          ${matchingSampleIds.length ? `
+            <div class="inheritance-sample-list">
+              ${matchingSampleIds.map(sampleId => `<span class="inheritance-sample-chip">${sampleId}</span>`).join('')}
+            </div>
+          ` : `
+            <div class="inheritance-empty">No other cohort sample IDs are currently reported for this exact variant.</div>
+          `}
+        </div>
+      </section>
+    </div>
+  `;
 }
 
 function wirePredictionTabs() {
@@ -4108,10 +5131,22 @@ function wirePredictionTabs() {
 function renderPredictionTab() {
   wirePredictionTabs();
   const tab = state.data.predictions.tabs.find(t => t.id === state.activePredictionTab) || state.data.predictions.tabs[0];
+  const titleHost = document.querySelector('#prediction-title');
   const metricsHost = document.querySelector('#prediction-grid');
   const detailHost = document.querySelector('#prediction-detail');
+  const showsMetrics = tab.id === 'prediction';
 
-  if (tab.id === 'prediction') {
+  if (titleHost) {
+    titleHost.textContent = tab.label;
+  }
+
+  metricsHost.classList.toggle('is-hidden', !showsMetrics);
+  detailHost.classList.toggle('is-standalone', !showsMetrics);
+
+  if (tab.id === 'inheritance') {
+    metricsHost.innerHTML = '';
+    renderInheritanceTab(detailHost);
+  } else if (tab.id === 'prediction') {
     const seenGroups = new Set();
     metricsHost.innerHTML = tab.metrics.map(metric => {
       let groupLabel = '';
@@ -4144,6 +5179,8 @@ function wireSearch() {
   input.addEventListener('input', () => {
     state.geneQuery = input.value || '';
     state.genesPage = 1;
+    const { scroller } = getTableScrollElements('genes');
+    if (scroller) scroller.scrollTop = 0;
     renderGeneTable();
   });
 }

@@ -1,19 +1,54 @@
 {
-  "rows": [
-    {
-      "sampleId": "COH_0012",
-      "genotype": "0/1",
-      "frequency": ""
+  "default": {
+    "cohortSize": 612,
+    "hitCount": 0,
+    "frequency": "0.00%",
+    "matchingSampleIds": []
+  },
+  "variants": {
+    "2-104856069-T-TG": {
+      "cohortSize": 612,
+      "hitCount": 3,
+      "frequency": "0.50%",
+      "matchingSampleIds": [
+        "COH_0012",
+        "COH_0045",
+        "COH_0091"
+      ]
     },
-    {
-      "sampleId": "COH_0045",
-      "genotype": "0/1",
-      "frequency": "0.5%"
+    "16-104856254-T-TG": {
+      "cohortSize": 612,
+      "hitCount": 2,
+      "frequency": "0.32%",
+      "matchingSampleIds": [
+        "COH_0178",
+        "COH_1022"
+      ]
     },
-    {
-      "sampleId": "COH_0091",
-      "genotype": "1/1",
-      "frequency": ""
+    "2-104856291-C-A": {
+      "cohortSize": 612,
+      "hitCount": 1,
+      "frequency": "0.11%",
+      "matchingSampleIds": [
+        "COH_0874"
+      ]
+    },
+    "7-104856328-G-A": {
+      "cohortSize": 612,
+      "hitCount": 0,
+      "frequency": "0.00%",
+      "matchingSampleIds": []
+    },
+    "17-104856365-T-C": {
+      "cohortSize": 612,
+      "hitCount": 4,
+      "frequency": "0.67%",
+      "matchingSampleIds": [
+        "COH_0008",
+        "COH_0341",
+        "COH_0775",
+        "COH_1211"
+      ]
     }
-  ]
+  }
 }

@@ -1,37 +1,286 @@
 {
-  "rows": [
-    {
-      "status": "Proband",
-      "badge": {
-        "text": "De Novo",
-        "tone": "rose"
+  "default": {
+    "members": [
+      {
+        "id": "proband",
+        "displayName": "Proband (Patient)",
+        "sampleId": "PR_9921",
+        "icon": "proband",
+        "badge": {
+          "text": "De Novo",
+          "tone": "rose"
+        },
+        "gt": "0/1",
+        "vaf": "0.48",
+        "cov": "112x",
+        "qual": "99",
+        "featured": true
       },
-      "gt": "0/1",
-      "vaf": "0.52",
-      "cov": "98",
-      "qual": "85"
+      {
+        "id": "paternal",
+        "displayName": "Paternal (Father)",
+        "sampleId": "FA_9922",
+        "icon": "paternal",
+        "badge": {
+          "text": "Reference",
+          "tone": "slate"
+        },
+        "gt": "0/0",
+        "vaf": "0.00",
+        "cov": "98x",
+        "qual": "99"
+      },
+      {
+        "id": "maternal",
+        "displayName": "Maternal (Mother)",
+        "sampleId": "MO_9923",
+        "icon": "maternal",
+        "badge": {
+          "text": "Reference",
+          "tone": "slate"
+        },
+        "gt": "0/0",
+        "vaf": "0.00",
+        "cov": "124x",
+        "qual": "100"
+      }
+    ]
+  },
+  "variants": {
+    "2-104856069-T-TG": {
+      "members": [
+        {
+          "id": "proband",
+          "displayName": "Proband (Patient)",
+          "sampleId": "PR_9921",
+          "icon": "proband",
+          "badge": {
+            "text": "De Novo",
+            "tone": "rose"
+          },
+          "gt": "0/1",
+          "vaf": "0.48",
+          "cov": "112x",
+          "qual": "99",
+          "featured": true
+        },
+        {
+          "id": "paternal",
+          "displayName": "Paternal (Father)",
+          "sampleId": "FA_9922",
+          "icon": "paternal",
+          "badge": {
+            "text": "Reference",
+            "tone": "slate"
+          },
+          "gt": "0/0",
+          "vaf": "0.00",
+          "cov": "98x",
+          "qual": "99"
+        },
+        {
+          "id": "maternal",
+          "displayName": "Maternal (Mother)",
+          "sampleId": "MO_9923",
+          "icon": "maternal",
+          "badge": {
+            "text": "Reference",
+            "tone": "slate"
+          },
+          "gt": "0/0",
+          "vaf": "0.00",
+          "cov": "124x",
+          "qual": "100"
+        }
+      ]
     },
-    {
-      "status": "Paternal",
-      "badge": {
-        "text": "Carrier",
-        "tone": "amber"
-      },
-      "gt": "0/1",
-      "vaf": "0.48",
-      "cov": "125",
-      "qual": "99"
+    "16-104856254-T-TG": {
+      "members": [
+        {
+          "id": "proband",
+          "displayName": "Proband (Patient)",
+          "sampleId": "PR_9921",
+          "icon": "proband",
+          "badge": {
+            "text": "Paternal",
+            "tone": "indigo"
+          },
+          "gt": "0/1",
+          "vaf": "0.51",
+          "cov": "109x",
+          "qual": "98",
+          "featured": true
+        },
+        {
+          "id": "paternal",
+          "displayName": "Paternal (Father)",
+          "sampleId": "FA_9922",
+          "icon": "paternal",
+          "badge": {
+            "text": "Carrier",
+            "tone": "indigo"
+          },
+          "gt": "0/1",
+          "vaf": "0.49",
+          "cov": "101x",
+          "qual": "99"
+        },
+        {
+          "id": "maternal",
+          "displayName": "Maternal (Mother)",
+          "sampleId": "MO_9923",
+          "icon": "maternal",
+          "badge": {
+            "text": "Reference",
+            "tone": "slate"
+          },
+          "gt": "0/0",
+          "vaf": "0.00",
+          "cov": "127x",
+          "qual": "99"
+        }
+      ]
     },
-    {
-      "status": "Maternal",
-      "badge": {
-        "text": "Reference",
-        "tone": "blue"
-      },
-      "gt": "0/0",
-      "vaf": "0.00",
-      "cov": "110",
-      "qual": "100"
+    "2-104856291-C-A": {
+      "members": [
+        {
+          "id": "proband",
+          "displayName": "Proband (Patient)",
+          "sampleId": "PR_9921",
+          "icon": "proband",
+          "badge": {
+            "text": "Maternal",
+            "tone": "blue"
+          },
+          "gt": "0/1",
+          "vaf": "0.44",
+          "cov": "117x",
+          "qual": "97",
+          "featured": true
+        },
+        {
+          "id": "paternal",
+          "displayName": "Paternal (Father)",
+          "sampleId": "FA_9922",
+          "icon": "paternal",
+          "badge": {
+            "text": "Reference",
+            "tone": "slate"
+          },
+          "gt": "0/0",
+          "vaf": "0.00",
+          "cov": "103x",
+          "qual": "98"
+        },
+        {
+          "id": "maternal",
+          "displayName": "Maternal (Mother)",
+          "sampleId": "MO_9923",
+          "icon": "maternal",
+          "badge": {
+            "text": "Carrier",
+            "tone": "blue"
+          },
+          "gt": "0/1",
+          "vaf": "0.47",
+          "cov": "121x",
+          "qual": "100"
+        }
+      ]
+    },
+    "7-104856328-G-A": {
+      "members": [
+        {
+          "id": "proband",
+          "displayName": "Proband (Patient)",
+          "sampleId": "PR_9921",
+          "icon": "proband",
+          "badge": {
+            "text": "Recessive",
+            "tone": "amber"
+          },
+          "gt": "1/1",
+          "vaf": "0.96",
+          "cov": "118x",
+          "qual": "99",
+          "featured": true
+        },
+        {
+          "id": "paternal",
+          "displayName": "Paternal (Father)",
+          "sampleId": "FA_9922",
+          "icon": "paternal",
+          "badge": {
+            "text": "Carrier",
+            "tone": "amber"
+          },
+          "gt": "0/1",
+          "vaf": "0.50",
+          "cov": "104x",
+          "qual": "98"
+        },
+        {
+          "id": "maternal",
+          "displayName": "Maternal (Mother)",
+          "sampleId": "MO_9923",
+          "icon": "maternal",
+          "badge": {
+            "text": "Carrier",
+            "tone": "amber"
+          },
+          "gt": "0/1",
+          "vaf": "0.52",
+          "cov": "126x",
+          "qual": "100"
+        }
+      ]
+    },
+    "17-104856365-T-C": {
+      "members": [
+        {
+          "id": "proband",
+          "displayName": "Proband (Patient)",
+          "sampleId": "PR_9921",
+          "icon": "proband",
+          "badge": {
+            "text": "Observed",
+            "tone": "indigo"
+          },
+          "gt": "0/1",
+          "vaf": "0.36",
+          "cov": "106x",
+          "qual": "95",
+          "featured": true
+        },
+        {
+          "id": "paternal",
+          "displayName": "Paternal (Father)",
+          "sampleId": "FA_9922",
+          "icon": "paternal",
+          "badge": {
+            "text": "Reference",
+            "tone": "slate"
+          },
+          "gt": "0/0",
+          "vaf": "0.00",
+          "cov": "92x",
+          "qual": "97"
+        },
+        {
+          "id": "maternal",
+          "displayName": "Maternal (Mother)",
+          "sampleId": "MO_9923",
+          "icon": "maternal",
+          "badge": {
+            "text": "Low level",
+            "tone": "blue"
+          },
+          "gt": "0/1",
+          "vaf": "0.12",
+          "cov": "131x",
+          "qual": "98"
+        }
+      ]
     }
-  ]
+  }
 }
