@@ -1,4 +1,5 @@
 # Draft Preview
+Live demo: https://spicychicken6.github.io/VariantsViewer/
 ![Main Page Mockup - Draft version](mock/mainpage.png)
 
 # Idea of the VariantsViewer (VV)
@@ -6,7 +7,6 @@ For the provided list of genes and variants, we wil pull and display the basic a
   - Gene and variant predicted ranks they have,
   - Family info, VCF and BAM data, to display the variant inheritance and view sequencing data in IGV
 
-Live demo: https://spicychicken6.github.io/VariantsViewer/
 
 # LiuZD Lab dashboard mock
 
