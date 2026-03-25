@@ -4437,9 +4437,18 @@ const state = {
   geneQuery: '',
   data: {},
   igvBrowser: null,
+  igvBrowserRequestId: 0,
   igvBrowserReady: false,
   igvTrackError: ''
 };
+
+function disposeIgvBrowser() {
+  if (state.igvBrowser && typeof state.igvBrowser.dispose === 'function') {
+    state.igvBrowser.dispose();
+  }
+  state.igvBrowser = null;
+  state.igvBrowserReady = false;
+}
 
 const DATA_MAP = {
   genes: 'data/genes.json',
@@ -5254,16 +5263,25 @@ async function createOrRefreshIgvBrowser() {
 
   status.textContent = `Loading BAM alignments at ${locus}...`;
   status.classList.remove('error');
+  const requestId = state.igvBrowserRequestId + 1;
+  state.igvBrowserRequestId = requestId;
 
   try {
     igvHost.innerHTML = '';
-    if (state.igvBrowser && typeof state.igvBrowser.dispose === 'function') {
-      state.igvBrowser.dispose();
+    disposeIgvBrowser();
+    const browser = await window.igv.createBrowser(igvHost, config);
+    if (requestId !== state.igvBrowserRequestId) {
+      if (browser && typeof browser.dispose === 'function') {
+        browser.dispose();
+      }
+      return;
     }
-    state.igvBrowser = await window.igv.createBrowser(igvHost, config);
+    state.igvBrowser = browser;
     state.igvBrowserReady = true;
     status.textContent = `Loaded ${tracks.length} BAM track${tracks.length === 1 ? '' : 's'} at ${locus}.`;
   } catch (error) {
+    if (requestId !== state.igvBrowserRequestId) return;
+    state.igvBrowser = null;
     state.igvBrowserReady = false;
     state.igvTrackError = error?.message || 'Unknown IGV initialization error';
     status.textContent = `Unable to load IGV alignment tracks: ${state.igvTrackError}`;
@@ -5377,6 +5395,9 @@ function renderPredictionTab() {
 
   metricsHost.classList.toggle('is-hidden', !showsMetrics);
   detailHost.classList.toggle('is-standalone', !showsMetrics);
+  if (tab.id !== 'igv') {
+    disposeIgvBrowser();
+  }
 
   if (tab.id === 'inheritance') {
     metricsHost.innerHTML = '';
