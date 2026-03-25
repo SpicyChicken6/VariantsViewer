@@ -4435,7 +4435,10 @@ const state = {
   geneSummaryKey: null,
   nav: 'home',
   geneQuery: '',
-  data: {}
+  data: {},
+  igvBrowser: null,
+  igvBrowserReady: false,
+  igvTrackError: ''
 };
 
 const DATA_MAP = {
@@ -4444,7 +4447,8 @@ const DATA_MAP = {
   phenotypes: 'data/phenotypes.json',
   family: 'data/family.json',
   cohort: 'data/cohort.json',
-  predictions: 'data/predictions.json'
+  predictions: 'data/predictions.json',
+  igv: 'data/igv.json'
 };
 
 const RESPONSIVE_TABLES = {
@@ -4477,7 +4481,7 @@ async function loadJson(key, url) {
     return await res.json();
   } catch (err) {
     console.warn(`Falling back to embedded data for ${key} because external loading failed.`, err);
-    return FALLBACK_DATA[key];
+    return FALLBACK_DATA[key] || {};
   }
 }
 
@@ -5181,6 +5185,170 @@ function renderInheritanceTab(detailHost) {
   `;
 }
 
+function getIgvDataConfig() {
+  return state.data.igv || {};
+}
+
+function getIgvTracksForVariant(variantRow) {
+  const igvConfig = getIgvDataConfig();
+  const variantKey = variantRow?.variant;
+  const variantScopedTracks = variantKey ? igvConfig.variantTracks?.[variantKey] : null;
+  const tracks = Array.isArray(variantScopedTracks) && variantScopedTracks.length
+    ? variantScopedTracks
+    : (Array.isArray(igvConfig.defaultTracks) ? igvConfig.defaultTracks : []);
+
+  return tracks.map(track => ({ ...track }));
+}
+
+function extractTrackNameFromUrl(rawUrl) {
+  try {
+    const parsedUrl = new URL(rawUrl);
+    return parsedUrl.pathname.split('/').pop() || 'BAM';
+  } catch (error) {
+    return 'BAM';
+  }
+}
+
+function parseVariantCoordinates(variantKey) {
+  if (!variantKey || typeof variantKey !== 'string') return null;
+  const [chromosome, positionText] = variantKey.split('-');
+  const position = Number(positionText);
+  if (!chromosome || !Number.isFinite(position)) return null;
+  const chrLabel = chromosome.toLowerCase().startsWith('chr') ? chromosome : `chr${chromosome}`;
+  return { chromosome: chrLabel, position };
+}
+
+function getVariantLocus(variantRow, flank = Number(getIgvDataConfig().defaultFlank) || 120) {
+  const fallback = 'chr2:104,855,950-104,856,250';
+  const parsed = parseVariantCoordinates(variantRow?.variant);
+  if (!parsed) return fallback;
+  const start = Math.max(1, parsed.position - flank);
+  const end = parsed.position + flank;
+  return `${parsed.chromosome}:${start.toLocaleString('en-US')}-${end.toLocaleString('en-US')}`;
+}
+
+function getVariantGenome() {
+  return getIgvDataConfig().defaultGenome || 'hg38';
+}
+
+async function createOrRefreshIgvBrowser() {
+  const igvHost = document.querySelector('#igv-browser-host');
+  const status = document.querySelector('#igv-status');
+  if (!igvHost || !status) return;
+
+  if (!window.igv || typeof window.igv.createBrowser !== 'function') {
+    status.textContent = 'IGV.js did not load. Check network access or CSP policy, then reload the page.';
+    status.classList.add('error');
+    return;
+  }
+
+  const locus = getVariantLocus(state.selectedVariantRow);
+  const tracks = getIgvTracksForVariant(state.selectedVariantRow);
+  const config = {
+    genome: getVariantGenome(),
+    locus,
+    showNavigation: true,
+    showRuler: true,
+    tracks
+  };
+
+  status.textContent = `Loading BAM alignments at ${locus}...`;
+  status.classList.remove('error');
+
+  try {
+    igvHost.innerHTML = '';
+    if (state.igvBrowser && typeof state.igvBrowser.dispose === 'function') {
+      state.igvBrowser.dispose();
+    }
+    state.igvBrowser = await window.igv.createBrowser(igvHost, config);
+    state.igvBrowserReady = true;
+    status.textContent = `Loaded ${tracks.length} BAM track${tracks.length === 1 ? '' : 's'} at ${locus}.`;
+  } catch (error) {
+    state.igvBrowserReady = false;
+    state.igvTrackError = error?.message || 'Unknown IGV initialization error';
+    status.textContent = `Unable to load IGV alignment tracks: ${state.igvTrackError}`;
+    status.classList.add('error');
+    console.error(error);
+  }
+}
+
+function wireIgvControls() {
+  const jumpBtn = document.querySelector('#igv-jump-btn');
+  const locusInput = document.querySelector('#igv-locus-input');
+  const bamInput = document.querySelector('#igv-bam-url-input');
+  const baiInput = document.querySelector('#igv-bai-url-input');
+  const addTrackBtn = document.querySelector('#igv-add-track-btn');
+  const status = document.querySelector('#igv-status');
+
+  if (locusInput) locusInput.value = getVariantLocus(state.selectedVariantRow);
+
+  jumpBtn?.addEventListener('click', async () => {
+    if (!state.igvBrowser || !locusInput?.value.trim()) return;
+    await state.igvBrowser.search(locusInput.value.trim());
+    status.textContent = `Moved to ${locusInput.value.trim()}.`;
+    status.classList.remove('error');
+  });
+
+  addTrackBtn?.addEventListener('click', async () => {
+    const bamUrl = bamInput?.value.trim();
+    const baiUrl = baiInput?.value.trim();
+    if (!state.igvBrowser || !bamUrl || !baiUrl) {
+      status.textContent = 'Enter both BAM and BAI URLs before adding a track.';
+      status.classList.add('error');
+      return;
+    }
+
+    try {
+      await state.igvBrowser.loadTrack({
+        type: 'alignment',
+        format: 'bam',
+        name: `Custom ${extractTrackNameFromUrl(bamUrl)}`,
+        url: bamUrl,
+        indexURL: baiUrl,
+        height: 180
+      });
+      status.textContent = 'Custom BAM track added successfully.';
+      status.classList.remove('error');
+      bamInput.value = '';
+      baiInput.value = '';
+    } catch (error) {
+      status.textContent = `Failed to add custom BAM track: ${error?.message || 'Unknown error'}`;
+      status.classList.add('error');
+    }
+  });
+}
+
+function renderIgvTab(detailHost) {
+  detailHost.innerHTML = `
+    <section class="igv-panel">
+      <div class="igv-toolbar">
+        <div class="igv-field">
+          <label for="igv-locus-input">Locus</label>
+          <input id="igv-locus-input" type="text" value="${getVariantLocus(state.selectedVariantRow)}" placeholder="chr2:104,855,950-104,856,250">
+        </div>
+        <button id="igv-jump-btn" class="tab-action-btn" type="button">Jump to locus</button>
+      </div>
+      <div class="igv-toolbar igv-toolbar-secondary">
+        <div class="igv-field">
+          <label for="igv-bam-url-input">BAM URL</label>
+          <input id="igv-bam-url-input" type="url" placeholder="https://server/path/sample.bam">
+        </div>
+        <div class="igv-field">
+          <label for="igv-bai-url-input">BAI URL</label>
+          <input id="igv-bai-url-input" type="url" placeholder="https://server/path/sample.bam.bai">
+        </div>
+        <button id="igv-add-track-btn" class="tab-action-btn" type="button">Add BAM</button>
+      </div>
+      <p class="igv-help">Tip: BAM/BAI endpoints must support CORS and HTTP range requests for IGV streaming.</p>
+      <p id="igv-status" class="igv-status" role="status" aria-live="polite"></p>
+      <div id="igv-browser-host" class="igv-browser-host" aria-label="IGV genome browser"></div>
+    </section>
+  `;
+
+  wireIgvControls();
+  createOrRefreshIgvBrowser();
+}
+
 function wirePredictionTabs() {
   const tabs = state.data.predictions.tabs;
   const host = document.querySelector('#prediction-tabs');
@@ -5213,6 +5381,9 @@ function renderPredictionTab() {
   if (tab.id === 'inheritance') {
     metricsHost.innerHTML = '';
     renderInheritanceTab(detailHost);
+  } else if (tab.id === 'igv') {
+    metricsHost.innerHTML = '';
+    renderIgvTab(detailHost);
   } else if (tab.id === 'prediction') {
     const seenGroups = new Set();
     metricsHost.innerHTML = tab.metrics.map(metric => {
