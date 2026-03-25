@@ -1,3 +1,6 @@
+# Draft Preview
+![Main Page Mockup - Draft version](mock/mainpage.png)
+
 # Idea of the VariantsViewer (VV)
 For the provided list of genes and variants, we wil pull and display the basic annotation information like gene id, clingen info, OMIM, gnomAD frequency and common prediction scores for the variants (like CADD, spliceAI, etc.) That said, there are two things we need frome the user before uploading their data:
   - Gene and variant predicted ranks they have,
