@@ -1121,3 +1121,70 @@ th.section-title{
     max-height:none;
   }
 }
+
+.igv-panel{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.igv-toolbar{
+  display:grid;
+  grid-template-columns:minmax(280px, 1fr) auto;
+  gap:10px;
+  align-items:end;
+}
+.igv-toolbar-secondary{
+  grid-template-columns:repeat(2, minmax(220px, 1fr)) auto;
+}
+.igv-field{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+.igv-field label{
+  font-size:11px;
+  letter-spacing:.03em;
+  font-weight:700;
+  color:#6a7080;
+  text-transform:uppercase;
+}
+.igv-field input{
+  height:34px;
+  border:1px solid var(--border-strong);
+  border-radius:8px;
+  padding:0 10px;
+  font:500 12px/1 var(--font-body);
+  color:#374151;
+  background:#fff;
+}
+.tab-action-btn{
+  height:34px;
+  border-radius:8px;
+  border:1px solid #1f2937;
+  background:#111827;
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  padding:0 12px;
+  cursor:pointer;
+}
+.igv-status{
+  margin:0;
+  font-size:12px;
+  color:#46617e;
+}
+.igv-help{
+  margin:0;
+  font-size:11px;
+  color:#7a8291;
+}
+.igv-status.error{
+  color:var(--danger);
+}
+.igv-browser-host{
+  min-height:340px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  background:#fff;
+}
