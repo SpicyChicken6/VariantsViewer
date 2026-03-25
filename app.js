@@ -5396,6 +5396,7 @@ function renderPredictionTab() {
   metricsHost.classList.toggle('is-hidden', !showsMetrics);
   detailHost.classList.toggle('is-standalone', !showsMetrics);
   if (tab.id !== 'igv') {
+    state.igvBrowserRequestId += 1;
     disposeIgvBrowser();
   }
 
