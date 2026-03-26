@@ -1,0 +1,127 @@
+{
+  "annotator": {
+    "name": "vep",
+    "version": "release-112",
+    "resource_bundle_version": "vv-acmg-bundle-2026.03",
+    "transcript_policy_version": "mane_plus_clinical_v1"
+  },
+  "plugins": {
+    "clinvar": "2026-02",
+    "gnomad": "4.1",
+    "revel": "1.3",
+    "spliceai": "1.3.1",
+    "alphamissense": "2023-09"
+  },
+  "variants": {
+    "2-104856069-T-TG": {
+      "input": { "build": "GRCh38", "chrom": "2", "pos": 104856069, "ref": "T", "alt": "TG" },
+      "transcripts": [
+        {
+          "transcript_id": "ENST00000361360.4",
+          "gene": "SCN2A",
+          "hgvsg": "NC_000002.12:g.104856069dup",
+          "hgvsc": "ENST00000361360.4:c.565dup",
+          "hgvsp": "ENSP00000353703.4:p.Asn189LysfsTer8",
+          "consequence": "frameshift_variant",
+          "mane_plus_clinical": true,
+          "canonical": true,
+          "protein_coding": true,
+          "exon": "6/27"
+        }
+      ],
+      "population": { "af_global": 0.0, "af_popmax": 0.0, "ac": 0, "an": 31120 },
+      "clinvar": { "significance": "Pathogenic", "review_stars": 2 },
+      "insilico": { "revel": 0.92, "cadd_phred": 34.2, "spliceai_max": 0.12, "phylop": 4.2, "gerp": 5.4, "alphamissense": 0.85 },
+      "region": { "in_critical_domain": true, "is_hotspot": false },
+      "gene_context": { "lof_known_mechanism": true }
+    },
+    "16-104856254-T-TG": {
+      "input": { "build": "GRCh38", "chrom": "16", "pos": 104856254, "ref": "T", "alt": "TG" },
+      "transcripts": [
+        {
+          "transcript_id": "ENST00000361360.4",
+          "gene": "ANKRD11",
+          "hgvsg": "NC_000016.10:g.104856254dup",
+          "hgvsc": "ENST00000361360.4:c.565dup",
+          "hgvsp": "ENSP00000353703.4:p.Asn189LysfsTer8",
+          "consequence": "frameshift_variant",
+          "mane_select": true,
+          "canonical": true,
+          "protein_coding": true,
+          "exon": "9/13"
+        }
+      ],
+      "population": { "af_global": 0.00002, "af_popmax": 0.00003, "ac": 2, "an": 69312 },
+      "clinvar": { "significance": "Likely_pathogenic", "review_stars": 1 },
+      "insilico": { "revel": 0.81, "cadd_phred": 30.4, "spliceai_max": 0.15, "phylop": 2.4, "gerp": 4.5, "alphamissense": 0.74 },
+      "region": { "in_critical_domain": false, "is_hotspot": false },
+      "gene_context": { "lof_known_mechanism": true }
+    },
+    "2-104856291-C-A": {
+      "input": { "build": "GRCh38", "chrom": "2", "pos": 104856291, "ref": "C", "alt": "A" },
+      "transcripts": [
+        {
+          "transcript_id": "ENST00000361360.4",
+          "gene": "SCN2A",
+          "hgvsg": "NC_000002.12:g.104856291C>A",
+          "hgvsc": "ENST00000361360.4:c.787C>A",
+          "hgvsp": "ENSP00000353703.4:p.Thr263Lys",
+          "consequence": "missense_variant",
+          "mane_plus_clinical": true,
+          "canonical": true,
+          "protein_coding": true,
+          "exon": "8/27"
+        }
+      ],
+      "population": { "af_global": 0.00008, "af_popmax": 0.00012, "ac": 8, "an": 65200 },
+      "clinvar": { "significance": "Uncertain_significance", "review_stars": 1 },
+      "insilico": { "revel": 0.79, "cadd_phred": 27.1, "spliceai_max": 0.01, "phylop": 3.9, "gerp": 4.6, "alphamissense": 0.66 },
+      "region": { "in_critical_domain": true, "is_hotspot": true },
+      "gene_context": { "lof_known_mechanism": true }
+    },
+    "7-104856328-G-A": {
+      "input": { "build": "GRCh38", "chrom": "7", "pos": 104856328, "ref": "G", "alt": "A" },
+      "transcripts": [
+        {
+          "transcript_id": "ENST00000225964.11",
+          "gene": "CFTR",
+          "hgvsg": "NC_000007.14:g.104856328G>A",
+          "hgvsc": "ENST00000225964.11:c.1521+5G>A",
+          "hgvsp": null,
+          "consequence": "splice_region_variant",
+          "mane_select": true,
+          "canonical": true,
+          "protein_coding": true,
+          "intron": "11/26"
+        }
+      ],
+      "population": { "af_global": 0.019, "af_popmax": 0.024, "ac": 2980, "an": 124600 },
+      "clinvar": { "significance": "Benign", "review_stars": 2 },
+      "insilico": { "revel": null, "cadd_phred": 6.8, "spliceai_max": 0.03, "phylop": 0.3, "gerp": -0.4, "alphamissense": null },
+      "region": { "in_critical_domain": false, "is_hotspot": false },
+      "gene_context": { "lof_known_mechanism": true }
+    },
+    "17-104856365-T-C": {
+      "input": { "build": "GRCh38", "chrom": "17", "pos": 104856365, "ref": "T", "alt": "C" },
+      "transcripts": [
+        {
+          "transcript_id": "ENST00000269571.7",
+          "gene": "BRCA1",
+          "hgvsg": "NC_000017.11:g.104856365T>C",
+          "hgvsc": "ENST00000269571.7:c.892+5T>C",
+          "hgvsp": null,
+          "consequence": "splice_region_variant",
+          "mane_plus_clinical": true,
+          "canonical": true,
+          "protein_coding": true,
+          "intron": "10/23"
+        }
+      ],
+      "population": { "af_global": 0.0022, "af_popmax": 0.0034, "ac": 160, "an": 47000 },
+      "clinvar": { "significance": "Conflicting_classifications_of_pathogenicity", "review_stars": 1 },
+      "insilico": { "revel": 0.31, "cadd_phred": 14.2, "spliceai_max": 0.08, "phylop": 1.2, "gerp": 1.1, "alphamissense": null },
+      "region": { "in_critical_domain": false, "is_hotspot": false },
+      "gene_context": { "lof_known_mechanism": true }
+    }
+  }
+}

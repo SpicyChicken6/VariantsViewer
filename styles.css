@@ -880,6 +880,29 @@ th.section-title{
   padding-left:18px;
   line-height:1.7;
 }
+.acmg-panel{display:flex;flex-direction:column;gap:12px}
+.acmg-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.acmg-title-wrap{display:flex;flex-direction:column;gap:3px}
+.acmg-variant{color:#7d8591;font-size:11px}
+.acmg-badge{display:inline-flex;align-items:center;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:700}
+.acmg-badge-danger{background:#ffe4e4;color:#b63a3a}
+.acmg-badge-warning{background:#fff0dc;color:#b46813}
+.acmg-badge-vus{background:#eceff4;color:#5b6472}
+.acmg-badge-safe{background:#e4f7ea;color:#2c7d48}
+.acmg-summary{margin:0;color:#626b78;font-size:11px}
+.acmg-criteria-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.acmg-criterion{border:1px solid #e9edf2;border-radius:8px;padding:9px 10px;background:#fff}
+.acmg-criterion.is-fired{border-color:#d9e3f5;background:#fbfdff}
+.acmg-code{font-weight:700;color:#283041}
+.acmg-strength{font-size:10px;text-transform:uppercase;letter-spacing:.03em;color:#456ed6}
+.acmg-strength-blocked{color:#a2a9b4}
+.acmg-criterion-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.acmg-reasons{margin:0;padding-left:16px;color:#525c6b;line-height:1.45;font-size:11px}
+.acmg-evidence-ref{margin-top:7px;color:#9aa3af;font-size:10px}
+.acmg-blockers{margin-top:7px;color:#6e7684;font-size:11px}
+.acmg-blockers summary{cursor:pointer}
+.acmg-blockers ul{margin:6px 0 0;padding-left:16px}
+.acmg-provenance{border-top:1px solid #edf1f5;padding-top:10px;display:flex;flex-wrap:wrap;gap:6px 12px;color:#818b98;font-size:10px}
 .inheritance-layout{
   display:grid;
   grid-template-columns:minmax(0, 1fr) minmax(0, .92fr);
@@ -1097,6 +1120,7 @@ th.section-title{
   }
   .dashboard{grid-template-columns:1fr}
   .search-wrap{width:100%;max-width:420px}
+  .acmg-criteria-grid{grid-template-columns:1fr}
   .inheritance-layout{grid-template-columns:1fr}
   .inheritance-panel-cohort{border-left:0;padding-left:0}
   .inheritance-genotype-grid{grid-template-columns:repeat(2, minmax(0, 1fr))}
