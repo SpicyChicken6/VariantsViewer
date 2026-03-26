@@ -5566,10 +5566,12 @@ async function loadProteinStructure(moduleState) {
 
     if (moduleState.modelUrl !== state.proteinViewerModelUrl) {
       await viewer.loadStructureFromUrl(moduleState.modelUrl, 'mmcif', false);
+      if (requestId !== state.proteinViewerRequestId) return;
       state.proteinViewerModelUrl = moduleState.modelUrl;
+    } else if (requestId !== state.proteinViewerRequestId) {
+      return;
     }
 
-    if (requestId !== state.proteinViewerRequestId) return;
     if (moduleState.residue) {
       statusHost.textContent = `Loaded ${moduleState.alphafoldEntry}. Residue ${moduleState.residue} is selected in metadata panel.`;
     } else {
@@ -5628,6 +5630,7 @@ async function renderProteinModule() {
 
   const moduleState = buildProteinModuleState();
   state.proteinModuleState = moduleState;
+  state.proteinViewerRequestId += 1;
   renderProteinMetadata(moduleState);
   clearProteinViewerForStatus(moduleState.status);
 
