@@ -1,10 +1,31 @@
 const FALLBACK_DATA = {
   genes: { totalCount: 0, pageSize: 10, rows: [] },
   variants: { totalCount: 0, pageSize: 20, rows: [] },
-  phenotypes: { itemsVisible: 4, slides: [], omimRows: [] },
+  phenotypes: {
+    itemsVisible: 4,
+    slides: [
+      {
+        id: 'neurologic',
+        label: 'Nervous system',
+        icon: 'assets/organs/nervous-system.svg',
+        active: true,
+        omimPhenotypes: [
+          { phenotype: 'No phenotype data loaded', inheritance: '—', match: '—' }
+        ],
+        hpoTerms: [
+          { code: 'HP:0000118', name: 'Phenotypic abnormality' }
+        ]
+      }
+    ],
+    omimRows: []
+  },
   family: { default: { members: [] }, rows: [] },
   cohort: { default: { cohortSize: 0, hitCount: 0, frequency: '0.00%', rank: '-' }, byGene: {} },
-  predictions: { tabs: [] },
+  predictions: {
+    tabs: [
+      { id: 'inheritance', label: 'INHERITANCE' }
+    ]
+  },
   igv: { defaultGenome: 'hg38', defaultFlank: 120, defaultTracks: [] }
 };
 const state = {
@@ -90,8 +111,9 @@ async function boot() {
   state.data = Object.fromEntries(entries);
   state.selectedGeneRow = getDefaultSelectedRow(state.data.genes.rows);
   state.selectedVariantRow = getDefaultSelectedRow(state.data.variants.rows);
-  const visibleSlides = state.data.phenotypes.slides.filter(s => state.activeOrgans.includes(s.id));
-  state.activePhenotypeId = visibleSlides.find(s => s.active)?.id || visibleSlides[0]?.id || state.data.phenotypes.slides[0].id;
+  const phenotypeSlides = state.data.phenotypes.slides || [];
+  const visibleSlides = phenotypeSlides.filter(s => state.activeOrgans.includes(s.id));
+  state.activePhenotypeId = visibleSlides.find(s => s.active)?.id || visibleSlides[0]?.id || phenotypeSlides[0]?.id || null;
   wireTableScrollControls('genes');
   wireTableScrollControls('variants');
   wireSearch();
@@ -359,7 +381,7 @@ function renderVariantTable() {
 
 function renderPhenotypePanel() {
   const data = state.data.phenotypes;
-  const slides = data.slides.filter(s => state.activeOrgans.includes(s.id));
+  const slides = (data.slides || []).filter(s => state.activeOrgans.includes(s.id));
   const hpoLogo = document.querySelector('.hpo-logo');
   if (hpoLogo && data.hpoLogo) hpoLogo.src = data.hpoLogo;
   const itemsVisible = data.itemsVisible || 4;
@@ -399,6 +421,11 @@ function renderPhenotypePanel() {
   };
 
   const active = slides.find(s => s.id === state.activePhenotypeId) || slides[0];
+  if (!active) {
+    document.querySelector('#omim-tbody').innerHTML = '';
+    document.querySelector('#hpo-tbody').innerHTML = '';
+    return;
+  }
 
   const omimTbody = document.querySelector('#omim-tbody');
   omimTbody.innerHTML = active.omimPhenotypes.map((row, i) => `
@@ -419,8 +446,12 @@ function renderPhenotypePanel() {
 
   /* Each OMIM phenotype shows a rotating window of HPO terms so that
      different phenotypes surface different (but overlapping) HPOs. */
-  const allHpo = active.hpoTerms;
+  const allHpo = active.hpoTerms || [];
   const hpoCount = allHpo.length;
+  if (!hpoCount) {
+    document.querySelector('#hpo-tbody').innerHTML = '';
+    return;
+  }
   const windowSize = Math.min(5, hpoCount);
   const start = state.selectedOmimIndex % hpoCount;
   const selectedHpos = [];
@@ -954,7 +985,7 @@ function renderIgvTab(detailHost) {
 }
 
 function wirePredictionTabs() {
-  const tabs = state.data.predictions.tabs;
+  const tabs = state.data.predictions.tabs || [];
   const host = document.querySelector('#prediction-tabs');
   host.innerHTML = tabs.map(t => `
     <button class="tab-btn ${t.id === state.activePredictionTab ? 'active' : ''}" data-id="${t.id}">${t.label}</button>
@@ -969,10 +1000,17 @@ function wirePredictionTabs() {
 
 function renderPredictionTab() {
   wirePredictionTabs();
-  const tab = state.data.predictions.tabs.find(t => t.id === state.activePredictionTab) || state.data.predictions.tabs[0];
+  const tabs = state.data.predictions.tabs || [];
+  const tab = tabs.find(t => t.id === state.activePredictionTab) || tabs[0];
   const titleHost = document.querySelector('#prediction-title');
   const metricsHost = document.querySelector('#prediction-grid');
   const detailHost = document.querySelector('#prediction-detail');
+  if (!tab) {
+    if (titleHost) titleHost.textContent = 'No prediction data';
+    metricsHost.innerHTML = '';
+    detailHost.innerHTML = '<p class="empty-state">Prediction data is unavailable.</p>';
+    return;
+  }
   const showsMetrics = tab.id === 'prediction';
 
   if (titleHost) {
