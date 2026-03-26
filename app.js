@@ -1,10 +1,3 @@
-const ENABLE_PROTEIN_MODULE = true;
-const ALPHAMISSENSE_THRESHOLDS = {
-  likelyPathogenic: 0.564,
-  likelyBenign: 0.34
-};
-const PROTEIN_RENDER_DEBOUNCE_MS = 120;
-
 const FALLBACK_DATA = {
   genes: { totalCount: 0, pageSize: 10, rows: [] },
   variants: { totalCount: 0, pageSize: 20, rows: [] },
@@ -50,11 +43,6 @@ const state = {
   nav: 'home',
   geneQuery: '',
   data: {},
-  proteinModuleState: { status: 'idle' },
-  proteinViewer: null,
-  proteinViewerModelUrl: null,
-  proteinViewerRequestId: 0,
-  proteinRenderTimer: null,
   igvBrowser: null,
   igvBrowserRequestId: 0,
   igvBrowserReady: false,
@@ -76,8 +64,7 @@ const DATA_MAP = {
   family: 'data/family.json',
   cohort: 'data/cohort.json',
   predictions: 'data/predictions.json',
-  igv: 'data/igv.json',
-  proteinAnnotations: 'data/protein_annotations.json'
+  igv: 'data/igv.json'
 };
 
 const RESPONSIVE_TABLES = {
@@ -132,7 +119,6 @@ async function boot() {
   wireSearch();
   wirePills();
   wirePredictionTabs();
-  wireProteinModuleControls();
   renderAll();
   syncResponsivePageSizes();
   window.addEventListener('resize', handleResponsiveResize, { passive: true });
@@ -145,7 +131,6 @@ function renderAll() {
   renderVariantTable();
   renderPhenotypePanel();
   renderPredictionTab();
-  queueProteinModuleRender();
 }
 
 function paginateRows(rows, page, pageSize) {
@@ -339,7 +324,6 @@ function renderGeneTable() {
       if (hasActiveTextSelection()) return;
       state.selectedGeneRow = pageRows[parseInt(tr.dataset.rowIndex, 10)];
       renderGeneTable();
-      queueProteinModuleRender();
     });
   });
 
@@ -380,7 +364,6 @@ function renderVariantTable() {
       state.selectedVariantRow = pageRows[parseInt(tr.dataset.rowIndex, 10)];
       renderVariantTable();
       renderPredictionTab();
-      queueProteinModuleRender();
     });
   });
 
@@ -392,7 +375,6 @@ function renderVariantTable() {
     if (scroller) scroller.scrollTop = 0;
     renderVariantTable();
     renderPredictionTab();
-    queueProteinModuleRender();
   });
   requestAnimationFrame(() => updateTableScrollControls('variants'));
 }
@@ -1074,216 +1056,6 @@ function renderPredictionTab() {
       </ul>
     `;
   }
-}
-
-function getProteinAnnotationsForGene(geneSymbol) {
-  const annotations = state.data.proteinAnnotations || {};
-  if (!geneSymbol) return null;
-  return annotations[geneSymbol] || null;
-}
-
-function isMissenseVariant(variantRow) {
-  return String(variantRow?.effect || '').toLowerCase().includes('missense');
-}
-
-function deriveAlphaMissenseClass(score) {
-  if (!Number.isFinite(score)) return null;
-  if (score >= ALPHAMISSENSE_THRESHOLDS.likelyPathogenic) return 'likely_pathogenic';
-  if (score <= ALPHAMISSENSE_THRESHOLDS.likelyBenign) return 'likely_benign';
-  return 'ambiguous';
-}
-
-function buildProteinModuleState() {
-  const selectedGene = state.selectedGeneRow;
-  const selectedVariant = state.selectedVariantRow;
-
-  if (!selectedGene) return { status: 'no_gene' };
-  if (!selectedVariant) return { status: 'no_variant', gene: selectedGene.gene };
-  if (!isMissenseVariant(selectedVariant)) {
-    return { status: 'non_missense', gene: selectedGene.gene, variant: selectedVariant };
-  }
-
-  const geneEntry = getProteinAnnotationsForGene(selectedGene.gene);
-  if (!geneEntry?.alphafold?.modelUrl) {
-    return { status: 'missing_structure', gene: selectedGene.gene, variant: selectedVariant };
-  }
-
-  const variantEntry = geneEntry.variants?.[selectedVariant.variant];
-  const baseState = {
-    status: 'missing_alphamissense',
-    gene: selectedGene.gene,
-    variant: selectedVariant,
-    modelUrl: geneEntry.alphafold.modelUrl,
-    alphafoldEntry: geneEntry.alphafold.entryId,
-    alphafoldUrl: geneEntry.alphafold.entryUrl || `https://alphafold.ebi.ac.uk/entry/${geneEntry.alphafold.entryId}`,
-    proteinChange: variantEntry?.proteinChange || 'Not provided',
-    transcript: variantEntry?.transcript || selectedVariant.transcript || 'Unknown',
-    residue: variantEntry?.proteinPosition ?? null,
-    score: variantEntry?.alphamissense?.score ?? null,
-    classification: variantEntry?.alphamissense?.class || null
-  };
-
-  if (!Number.isFinite(baseState.score)) return baseState;
-  return {
-    ...baseState,
-    status: 'ready',
-    classification: baseState.classification || deriveAlphaMissenseClass(baseState.score)
-  };
-}
-
-function getProteinStatusCopy(moduleState) {
-  const statusMap = {
-    no_gene: 'Select a gene to enable protein context.',
-    no_variant: 'Select a variant to load AlphaFold and AlphaMissense context.',
-    non_missense: 'AlphaMissense is available for missense substitutions only.',
-    missing_structure: 'AlphaFold structure unavailable for this gene in the local annotation set.',
-    missing_alphamissense: 'Structure is available, but AlphaMissense score is unavailable for this missense variant.',
-    ready: 'Protein structure and AlphaMissense prediction loaded.'
-  };
-  return statusMap[moduleState.status] || 'Protein module is waiting for a valid selection.';
-}
-
-function formatClassificationLabel(classification) {
-  if (!classification) return 'Unavailable';
-  return classification.replaceAll('_', ' ');
-}
-
-function queueProteinModuleRender() {
-  if (!ENABLE_PROTEIN_MODULE) return;
-  if (state.proteinRenderTimer) window.clearTimeout(state.proteinRenderTimer);
-  state.proteinRenderTimer = window.setTimeout(() => {
-    state.proteinRenderTimer = null;
-    renderProteinModule();
-  }, PROTEIN_RENDER_DEBOUNCE_MS);
-}
-
-async function getOrCreateProteinViewer() {
-  if (state.proteinViewer) return state.proteinViewer;
-  if (!window.molstar?.Viewer?.create) return null;
-  const viewer = await window.molstar.Viewer.create('protein-viewer', {
-    layoutShowControls: false,
-    layoutShowLeftPanel: false,
-    layoutShowSequence: false,
-    layoutShowLog: false,
-    viewportShowExpand: false
-  });
-  state.proteinViewer = viewer;
-  return viewer;
-}
-
-function disposeProteinViewer() {
-  if (!state.proteinViewer) return;
-  try {
-    if (typeof state.proteinViewer.dispose === 'function') {
-      state.proteinViewer.dispose();
-    }
-  } catch (error) {
-    console.warn('Failed to dispose Mol* viewer instance cleanly.', error);
-  } finally {
-    state.proteinViewer = null;
-    state.proteinViewerModelUrl = null;
-  }
-}
-
-async function loadProteinStructure(moduleState) {
-  const statusHost = document.querySelector('#protein-module-status');
-  const retryBtn = document.querySelector('#protein-retry-btn');
-  if (!moduleState?.modelUrl) return;
-
-  const requestId = state.proteinViewerRequestId + 1;
-  state.proteinViewerRequestId = requestId;
-  statusHost.textContent = `Loading AlphaFold model ${moduleState.alphafoldEntry || ''}...`;
-  retryBtn?.classList.add('is-hidden');
-
-  try {
-    const viewer = await getOrCreateProteinViewer();
-    if (!viewer) {
-      statusHost.textContent = 'Mol* did not load. Check network access and reload.';
-      return;
-    }
-
-    if (moduleState.modelUrl !== state.proteinViewerModelUrl) {
-      await viewer.loadStructureFromUrl(moduleState.modelUrl, 'mmcif', false);
-      if (requestId !== state.proteinViewerRequestId) return;
-      state.proteinViewerModelUrl = moduleState.modelUrl;
-    } else if (requestId !== state.proteinViewerRequestId) {
-      return;
-    }
-
-    if (moduleState.residue) {
-      statusHost.textContent = `Loaded ${moduleState.alphafoldEntry}. Residue ${moduleState.residue} is selected in metadata panel.`;
-    } else {
-      statusHost.textContent = `Loaded ${moduleState.alphafoldEntry}.`;
-    }
-  } catch (error) {
-    if (requestId !== state.proteinViewerRequestId) return;
-    statusHost.textContent = `Failed to load AlphaFold structure: ${error?.message || 'Unknown error'}`;
-    retryBtn?.classList.remove('is-hidden');
-    console.error(error);
-  }
-}
-
-function renderProteinMetadata(moduleState) {
-  const statusHost = document.querySelector('#protein-module-status');
-  const noteHost = document.querySelector('#protein-module-note');
-  const geneHost = document.querySelector('#protein-gene');
-  const changeHost = document.querySelector('#protein-change');
-  const transcriptHost = document.querySelector('#protein-transcript');
-  const residueHost = document.querySelector('#protein-residue');
-  const scoreHost = document.querySelector('#protein-score');
-  const classHost = document.querySelector('#protein-class');
-  const alphaFoldLink = document.querySelector('#protein-alphafold-link');
-
-  statusHost.textContent = getProteinStatusCopy(moduleState);
-  geneHost.textContent = moduleState.gene || '-';
-  changeHost.textContent = moduleState.proteinChange || moduleState.variant?.hgvsc || '-';
-  transcriptHost.textContent = moduleState.transcript || moduleState.variant?.transcript || '-';
-  residueHost.textContent = Number.isFinite(moduleState.residue) ? String(moduleState.residue) : '-';
-  scoreHost.textContent = Number.isFinite(moduleState.score) ? moduleState.score.toFixed(3) : 'Unavailable';
-  classHost.textContent = formatClassificationLabel(moduleState.classification);
-  classHost.className = `protein-class-badge ${moduleState.classification || 'neutral'}`;
-  noteHost.textContent = 'AlphaMissense is predictive evidence and should not be used as standalone clinical evidence.';
-
-  if (moduleState.alphafoldUrl) {
-    alphaFoldLink.href = moduleState.alphafoldUrl;
-    alphaFoldLink.setAttribute('aria-disabled', 'false');
-  } else {
-    alphaFoldLink.href = '#';
-    alphaFoldLink.setAttribute('aria-disabled', 'true');
-  }
-}
-
-function clearProteinViewerForStatus(status) {
-  const viewerHost = document.querySelector('#protein-viewer');
-  if (!viewerHost) return;
-  if (status === 'ready' || status === 'missing_alphamissense') return;
-  disposeProteinViewer();
-  viewerHost.innerHTML = '<div class=\"protein-viewer-empty\">No structure loaded for this selection.</div>';
-}
-
-async function renderProteinModule() {
-  if (!ENABLE_PROTEIN_MODULE) return;
-  const moduleCard = document.querySelector('.protein-module-card');
-  if (!moduleCard) return;
-
-  const moduleState = buildProteinModuleState();
-  state.proteinModuleState = moduleState;
-  state.proteinViewerRequestId += 1;
-  renderProteinMetadata(moduleState);
-  clearProteinViewerForStatus(moduleState.status);
-
-  if (moduleState.status === 'ready' || moduleState.status === 'missing_alphamissense') {
-    await loadProteinStructure(moduleState);
-  }
-}
-
-function wireProteinModuleControls() {
-  const retryBtn = document.querySelector('#protein-retry-btn');
-  if (!retryBtn || retryBtn.dataset.wired === 'true') return;
-  retryBtn.dataset.wired = 'true';
-  retryBtn.addEventListener('click', () => {
-    queueProteinModuleRender();
-  });
 }
 
 function wireSearch() {
