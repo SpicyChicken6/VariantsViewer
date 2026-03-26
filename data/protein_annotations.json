@@ -1,0 +1,62 @@
+{
+  "MECP2": {
+    "uniprot": "P51608",
+    "alphafold": {
+      "entryId": "AF-P51608-F1",
+      "entryUrl": "https://alphafold.ebi.ac.uk/entry/P51608",
+      "modelUrl": "https://alphafold.ebi.ac.uk/files/AF-P51608-F1-model_v4.cif"
+    },
+    "variants": {
+      "2-104856069-T-TG": {
+        "proteinChange": "p.Arg106Trp",
+        "transcript": "NM_001110792.2",
+        "proteinPosition": 106,
+        "refAa": "R",
+        "altAa": "W",
+        "alphamissense": {
+          "score": 0.93,
+          "class": "likely_pathogenic",
+          "source": "AlphaMissense precomputed"
+        }
+      },
+      "2-104856291-C-A": {
+        "proteinChange": "p.Arg113His",
+        "transcript": "NM_001110792.2",
+        "proteinPosition": 113,
+        "refAa": "R",
+        "altAa": "H",
+        "alphamissense": {
+          "score": 0.24,
+          "class": "likely_benign",
+          "source": "AlphaMissense precomputed"
+        }
+      }
+    }
+  },
+  "TXNIP": {
+    "uniprot": "Q9H3M7",
+    "alphafold": {
+      "entryId": "AF-Q9H3M7-F1",
+      "entryUrl": "https://alphafold.ebi.ac.uk/entry/Q9H3M7",
+      "modelUrl": "https://alphafold.ebi.ac.uk/files/AF-Q9H3M7-F1-model_v4.cif"
+    },
+    "variants": {
+      "16-104856476-C-A": {
+        "proteinChange": "p.Leu188Met",
+        "transcript": "NM_006472.6",
+        "proteinPosition": 188,
+        "refAa": "L",
+        "altAa": "M"
+      }
+    }
+  },
+  "SHANK3": {
+    "uniprot": "Q9BYB0",
+    "alphafold": {
+      "entryId": "",
+      "entryUrl": "",
+      "modelUrl": ""
+    },
+    "variants": {}
+  }
+}

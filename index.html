@@ -196,6 +196,32 @@
 
         </div>
 
+
+        <article class="card protein-module-card" aria-labelledby="protein-module-title">
+          <div class="protein-module-head">
+            <div id="protein-module-title" class="card-title">PROTEIN STRUCTURE &amp; ALPHAMISSENSE</div>
+            <div id="protein-module-status" class="protein-module-status" role="status" aria-live="polite"></div>
+          </div>
+          <div class="protein-module-body">
+            <div id="protein-viewer" class="protein-viewer" tabindex="0" aria-label="Protein structure viewer"></div>
+            <div class="protein-side-panel">
+              <dl class="protein-metadata-list">
+                <div><dt>Gene</dt><dd id="protein-gene">-</dd></div>
+                <div><dt>Protein change</dt><dd id="protein-change">-</dd></div>
+                <div><dt>Transcript</dt><dd id="protein-transcript">-</dd></div>
+                <div><dt>Residue</dt><dd id="protein-residue">-</dd></div>
+                <div><dt>AlphaMissense score</dt><dd id="protein-score">-</dd></div>
+                <div><dt>Classification</dt><dd><span id="protein-class" class="protein-class-badge neutral">Unavailable</span></dd></div>
+              </dl>
+              <p id="protein-module-note" class="protein-module-note"></p>
+              <div class="protein-links">
+                <a id="protein-alphafold-link" href="#" target="_blank" rel="noreferrer">AlphaFold entry</a>
+                <a id="protein-alphamissense-link" href="https://github.com/google-deepmind/alphamissense" target="_blank" rel="noreferrer">AlphaMissense source</a>
+              </div>
+              <button id="protein-retry-btn" type="button" class="tab-action-btn protein-retry-btn is-hidden">Retry structure load</button>
+            </div>
+          </div>
+        </article>
         <article class="card predictions-card">
           <div class="predictions-wrap">
             <div class="predictions-head">
@@ -210,6 +236,8 @@
     </section>
   </main>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/molstar@4.8.0/build/viewer/molstar.css">
+  <script src="https://cdn.jsdelivr.net/npm/molstar@4.8.0/build/viewer/molstar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/igv@3.0.0/dist/igv.min.js"></script>
   <script src="app.js"></script>
 </body>
