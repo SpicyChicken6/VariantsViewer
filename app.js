@@ -5547,6 +5547,20 @@ async function getOrCreateProteinViewer() {
   return viewer;
 }
 
+function disposeProteinViewer() {
+  if (!state.proteinViewer) return;
+  try {
+    if (typeof state.proteinViewer.dispose === 'function') {
+      state.proteinViewer.dispose();
+    }
+  } catch (error) {
+    console.warn('Failed to dispose Mol* viewer instance cleanly.', error);
+  } finally {
+    state.proteinViewer = null;
+    state.proteinViewerModelUrl = null;
+  }
+}
+
 async function loadProteinStructure(moduleState) {
   const statusHost = document.querySelector('#protein-module-status');
   const retryBtn = document.querySelector('#protein-retry-btn');
@@ -5619,8 +5633,8 @@ function clearProteinViewerForStatus(status) {
   const viewerHost = document.querySelector('#protein-viewer');
   if (!viewerHost) return;
   if (status === 'ready' || status === 'missing_alphamissense') return;
+  disposeProteinViewer();
   viewerHost.innerHTML = '<div class=\"protein-viewer-empty\">No structure loaded for this selection.</div>';
-  state.proteinViewerModelUrl = null;
 }
 
 async function renderProteinModule() {
