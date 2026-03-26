@@ -4457,7 +4457,8 @@ const DATA_MAP = {
   family: 'data/family.json',
   cohort: 'data/cohort.json',
   predictions: 'data/predictions.json',
-  igv: 'data/igv.json'
+  igv: 'data/igv.json',
+  vepAnnotations: 'data/vep_annotations.json'
 };
 
 const RESPONSIVE_TABLES = {
@@ -5086,6 +5087,394 @@ function getFamilyDisplayName(row) {
   return String(rawName).replace(/\s*\([^)]*\)\s*$/, '');
 }
 
+const ACMG_STRENGTH_LABELS = {
+  Supporting: 'supporting',
+  Moderate: 'moderate',
+  Strong: 'strong',
+  VeryStrong: 'very strong'
+};
+
+class AnnotatorAdapter {
+  constructor(name) {
+    this.name = name;
+  }
+
+  async version() {
+    throw new Error('version() must be implemented by adapter');
+  }
+
+  async annotate(variants) {
+    throw new Error('annotate() must be implemented by adapter');
+  }
+
+  async normalize(rawBatch) {
+    throw new Error('normalize() must be implemented by adapter');
+  }
+}
+
+class VepAdapter extends AnnotatorAdapter {
+  constructor(bundle) {
+    super('vep');
+    this.bundle = bundle || {};
+  }
+
+  async version() {
+    return this.bundle?.annotator?.version || 'unknown';
+  }
+
+  async annotate(variants) {
+    const variantMap = this.bundle?.variants || {};
+    return variants.map(variantKey => ({
+      variantKey,
+      raw: variantMap[variantKey] || null
+    }));
+  }
+
+  selectTranscript(transcripts = []) {
+    if (!Array.isArray(transcripts) || !transcripts.length) return null;
+    return (
+      transcripts.find(tx => tx.mane_plus_clinical) ||
+      transcripts.find(tx => tx.mane_select) ||
+      transcripts.find(tx => tx.canonical && tx.protein_coding) ||
+      transcripts[0]
+    );
+  }
+
+  normalizePopulation(population = {}) {
+    return {
+      af_global: Number(population.af_global) || 0,
+      af_popmax: Number(population.af_popmax) || 0,
+      ac: Number(population.ac) || 0,
+      an: Number(population.an) || 0
+    };
+  }
+
+  normalizeClinical(clinvar = {}) {
+    return {
+      significance: clinvar.significance || 'Unknown',
+      review_stars: Number(clinvar.review_stars) || 0
+    };
+  }
+
+  normalizeInSilico(insilico = {}) {
+    return {
+      revel: Number.isFinite(Number(insilico.revel)) ? Number(insilico.revel) : null,
+      cadd_phred: Number.isFinite(Number(insilico.cadd_phred)) ? Number(insilico.cadd_phred) : null,
+      spliceai_max: Number.isFinite(Number(insilico.spliceai_max)) ? Number(insilico.spliceai_max) : null,
+      phylop: Number.isFinite(Number(insilico.phylop)) ? Number(insilico.phylop) : null,
+      gerp: Number.isFinite(Number(insilico.gerp)) ? Number(insilico.gerp) : null,
+      alphamissense: Number.isFinite(Number(insilico.alphamissense)) ? Number(insilico.alphamissense) : null
+    };
+  }
+
+  async normalize(rawBatch) {
+    const timestamp = new Date().toISOString();
+    return rawBatch.map(entry => {
+      const raw = entry.raw || {};
+      const tx = this.selectTranscript(raw.transcripts);
+      const parsedCoords = parseVariantCoordinates(entry.variantKey) || {};
+      const [build, chrom, pos, ref, alt] = [
+        raw.input?.build || 'GRCh38',
+        raw.input?.chrom || parsedCoords.chromosome?.replace(/^chr/i, '') || 'NA',
+        raw.input?.pos || parsedCoords.position || null,
+        raw.input?.ref || 'N',
+        raw.input?.alt || 'N'
+      ];
+      return {
+        variantKey: entry.variantKey,
+        variant: { build, chrom, pos, ref, alt, hgvsg: tx?.hgvsg || null, hgvsc: tx?.hgvsc || null, hgvsp: tx?.hgvsp || null },
+        gene: tx?.gene || 'Unknown',
+        transcript_id: tx?.transcript_id || null,
+        consequence: tx?.consequence || 'intergenic_variant',
+        exon: tx?.exon || null,
+        intron: tx?.intron || null,
+        transcript_policy_tags: [
+          tx?.mane_plus_clinical ? 'MANE_PLUS_CLINICAL' : null,
+          tx?.mane_select ? 'MANE_SELECT' : null,
+          tx?.canonical ? 'CANONICAL' : null
+        ].filter(Boolean),
+        population: this.normalizePopulation(raw.population),
+        clinical: this.normalizeClinical(raw.clinvar),
+        in_silico: this.normalizeInSilico(raw.insilico),
+        region: {
+          in_critical_domain: Boolean(raw.region?.in_critical_domain),
+          is_hotspot: Boolean(raw.region?.is_hotspot)
+        },
+        gene_context: {
+          lof_known_mechanism: Boolean(raw.gene_context?.lof_known_mechanism)
+        },
+        provenance: {
+          annotator_name: this.name,
+          annotator_version: this.bundle?.annotator?.version || 'unknown',
+          resource_bundle_version: this.bundle?.annotator?.resource_bundle_version || 'unknown',
+          acmg_ruleset_version: 'acmg-amp-2015-vv-v1',
+          transcript_policy_version: this.bundle?.annotator?.transcript_policy_version || 'unknown',
+          classifier_build_id: 'vv-acmg-ui-build-1',
+          plugins: this.bundle?.plugins || {},
+          timestamp
+        }
+      };
+    });
+  }
+}
+
+function buildCriterionResult({ code, fired, strength, reasons, evidenceRefs, blockers }) {
+  return {
+    code,
+    fired,
+    strength,
+    reasons: reasons || [],
+    evidenceRefs: evidenceRefs || [],
+    blockers: blockers || []
+  };
+}
+
+function evaluatePVS1(evidence) {
+  const isLoF = /(frameshift_variant|stop_gained|splice_acceptor_variant|splice_donor_variant)/.test(evidence.consequence);
+  const hasKnownMechanism = evidence.gene_context.lof_known_mechanism;
+  const fired = isLoF && hasKnownMechanism;
+  return buildCriterionResult({
+    code: 'PVS1',
+    fired,
+    strength: fired ? 'VeryStrong' : undefined,
+    reasons: fired ? ['Predicted loss-of-function variant in a gene with established LoF mechanism.'] : [],
+    evidenceRefs: ['consequence', 'gene_context.lof_known_mechanism'],
+    blockers: fired ? [] : ['Variant is not a canonical LoF consequence or LoF mechanism is not established.']
+  });
+}
+
+function evaluatePM1(evidence) {
+  const fired = evidence.region.in_critical_domain || evidence.region.is_hotspot;
+  return buildCriterionResult({
+    code: 'PM1',
+    fired,
+    strength: fired ? 'Moderate' : undefined,
+    reasons: fired ? ['Variant overlaps a critical domain or mutational hotspot without strong benign variation.'] : [],
+    evidenceRefs: ['region.in_critical_domain', 'region.is_hotspot'],
+    blockers: fired ? [] : ['Variant is outside curated hotspot and critical-domain annotations.']
+  });
+}
+
+function evaluatePM2(evidence) {
+  const popmax = evidence.population.af_popmax;
+  const fired = popmax <= 0.0001;
+  return buildCriterionResult({
+    code: 'PM2',
+    fired,
+    strength: fired ? 'Moderate' : undefined,
+    reasons: fired ? [`Population popmax AF (${popmax}) is at or below rarity threshold (0.0001).`] : [],
+    evidenceRefs: ['population.af_popmax'],
+    blockers: fired ? [] : [`Population popmax AF (${popmax}) is above rarity threshold.`]
+  });
+}
+
+function evaluatePP3(evidence) {
+  const revel = evidence.in_silico.revel;
+  const cadd = evidence.in_silico.cadd_phred;
+  const spliceai = evidence.in_silico.spliceai_max;
+  const deleteriousVotes = [revel >= 0.7, cadd >= 20, spliceai >= 0.2].filter(Boolean).length;
+  const fired = deleteriousVotes >= 2;
+  return buildCriterionResult({
+    code: 'PP3',
+    fired,
+    strength: fired ? 'Supporting' : undefined,
+    reasons: fired ? ['Multiple in-silico models support deleterious impact (ensemble vote >=2).'] : [],
+    evidenceRefs: ['in_silico.revel', 'in_silico.cadd_phred', 'in_silico.spliceai_max'],
+    blockers: fired ? [] : ['In-silico ensemble support did not reach threshold.']
+  });
+}
+
+function evaluateBA1(evidence) {
+  const popmax = evidence.population.af_popmax;
+  const fired = popmax >= 0.05;
+  return buildCriterionResult({
+    code: 'BA1',
+    fired,
+    reasons: fired ? [`Population popmax AF (${popmax}) exceeds stand-alone benign threshold (>= 0.05).`] : [],
+    evidenceRefs: ['population.af_popmax'],
+    blockers: fired ? [] : ['Population frequency is below BA1 threshold.']
+  });
+}
+
+function evaluateBS1(evidence) {
+  const popmax = evidence.population.af_popmax;
+  const fired = popmax >= 0.005;
+  return buildCriterionResult({
+    code: 'BS1',
+    fired,
+    strength: fired ? 'Strong' : undefined,
+    reasons: fired ? [`Population popmax AF (${popmax}) exceeds strong benign threshold (>= 0.005).`] : [],
+    evidenceRefs: ['population.af_popmax'],
+    blockers: fired ? [] : ['Population frequency is below BS1 threshold.']
+  });
+}
+
+function evaluateBP4(evidence) {
+  const revel = evidence.in_silico.revel;
+  const cadd = evidence.in_silico.cadd_phred;
+  const spliceai = evidence.in_silico.spliceai_max;
+  const benignVotes = [revel !== null && revel < 0.3, cadd !== null && cadd < 15, spliceai !== null && spliceai < 0.1].filter(Boolean).length;
+  const fired = benignVotes >= 2;
+  return buildCriterionResult({
+    code: 'BP4',
+    fired,
+    strength: fired ? 'Supporting' : undefined,
+    reasons: fired ? ['Computational evidence supports no impact (benign ensemble vote >=2).'] : [],
+    evidenceRefs: ['in_silico.revel', 'in_silico.cadd_phred', 'in_silico.spliceai_max'],
+    blockers: fired ? [] : ['Benign computational support did not meet threshold.']
+  });
+}
+
+function evaluateBP7(evidence) {
+  const synonymousOrIntronic = /(synonymous_variant|intron_variant|splice_region_variant)/.test(evidence.consequence);
+  const lowSpliceImpact = evidence.in_silico.spliceai_max !== null && evidence.in_silico.spliceai_max < 0.1;
+  const lowConservation = (evidence.in_silico.phylop !== null && evidence.in_silico.phylop < 2) || (evidence.in_silico.gerp !== null && evidence.in_silico.gerp < 2);
+  const fired = synonymousOrIntronic && lowSpliceImpact && lowConservation;
+  return buildCriterionResult({
+    code: 'BP7',
+    fired,
+    strength: fired ? 'Supporting' : undefined,
+    reasons: fired ? ['Silent/noncoding context with low predicted splice impact and low conservation support.'] : [],
+    evidenceRefs: ['consequence', 'in_silico.spliceai_max', 'in_silico.phylop', 'in_silico.gerp'],
+    blockers: fired ? [] : ['Variant does not meet BP7 requirements for context + low splice/conservation impact.']
+  });
+}
+
+function evaluatePS1() {
+  return buildCriterionResult({
+    code: 'PS1',
+    fired: false,
+    strength: undefined,
+    reasons: [],
+    evidenceRefs: ['clinical.significance'],
+    blockers: ['Amino-acid-level pathogenic match evidence is not available in the current dataset.']
+  });
+}
+
+function combineAcmgCriteria(criteria) {
+  const fired = criteria.filter(c => c.fired);
+  const pathogenic = fired.filter(c => /^P/.test(c.code));
+  const benign = fired.filter(c => /^B/.test(c.code));
+  const count = strength => pathogenic.filter(c => c.strength === strength).length;
+  const benignStrong = benign.filter(c => c.strength === 'Strong').length;
+  const benignSupporting = benign.filter(c => c.strength === 'Supporting').length;
+  const hasBA1 = benign.some(c => c.code === 'BA1');
+
+  let classification = 'VUS';
+  if (hasBA1) {
+    classification = 'Benign';
+  } else if (benignStrong >= 2 || (benignStrong >= 1 && benignSupporting >= 1)) {
+    classification = 'Likely benign';
+  } else if (
+    count('VeryStrong') >= 1 && (count('Strong') >= 1 || count('Moderate') >= 2 || (count('Moderate') >= 1 && count('Supporting') >= 1))
+  ) {
+    classification = 'Pathogenic';
+  } else if (
+    (count('VeryStrong') >= 1 && count('Moderate') >= 1) ||
+    count('Strong') >= 1 && count('Moderate') >= 1 ||
+    count('Strong') >= 2 ||
+    count('Moderate') >= 3 ||
+    (count('Moderate') >= 2 && count('Supporting') >= 2)
+  ) {
+    classification = 'Likely pathogenic';
+  }
+
+  const points = (count('VeryStrong') * 8) + (count('Strong') * 4) + (count('Moderate') * 2) + count('Supporting')
+    - (benignStrong * 4) - benignSupporting;
+
+  return { classification, points };
+}
+
+async function classifyVariantWithAcmg(variantKey) {
+  const adapter = new VepAdapter(state.data.vepAnnotations);
+  const raw = await adapter.annotate([variantKey]);
+  const [evidence] = await adapter.normalize(raw);
+  const criteria = [
+    evaluatePVS1(evidence),
+    evaluatePS1(evidence),
+    evaluatePM1(evidence),
+    evaluatePM2(evidence),
+    evaluatePP3(evidence),
+    evaluateBA1(evidence),
+    evaluateBS1(evidence),
+    evaluateBP4(evidence),
+    evaluateBP7(evidence)
+  ];
+  const summary = combineAcmgCriteria(criteria);
+  return {
+    variantKey,
+    evidence,
+    classification: summary.classification,
+    criteria,
+    points: summary.points,
+    version: {
+      acmg_ruleset_version: evidence.provenance.acmg_ruleset_version,
+      transcript_policy_version: evidence.provenance.transcript_policy_version
+    },
+    provenance: evidence.provenance
+  };
+}
+
+function getAcmgBadgeTone(classification) {
+  const byClass = {
+    Pathogenic: 'danger',
+    'Likely pathogenic': 'warning',
+    VUS: 'vus',
+    'Likely benign': 'safe',
+    Benign: 'safe'
+  };
+  return byClass[classification] || 'vus';
+}
+
+function renderAcmgCriterionCard(criterion) {
+  return `
+    <article class="acmg-criterion ${criterion.fired ? 'is-fired' : 'is-blocked'}">
+      <header class="acmg-criterion-head">
+        <span class="acmg-code">${criterion.code}</span>
+        ${criterion.fired ? `<span class="acmg-strength">${ACMG_STRENGTH_LABELS[criterion.strength] || ''}</span>` : '<span class="acmg-strength acmg-strength-blocked">not triggered</span>'}
+      </header>
+      ${criterion.reasons.length ? `<ul class="acmg-reasons">${criterion.reasons.map(r => `<li>${r}</li>`).join('')}</ul>` : ''}
+      ${criterion.blockers.length ? `<details class="acmg-blockers"><summary>Why not fired</summary><ul>${criterion.blockers.map(b => `<li>${b}</li>`).join('')}</ul></details>` : ''}
+      <div class="acmg-evidence-ref">Refs: ${criterion.evidenceRefs.join(', ')}</div>
+    </article>
+  `;
+}
+
+function renderAcmgTab(detailHost) {
+  const variantKey = state.selectedVariantRow?.variant;
+  if (!variantKey) {
+    detailHost.innerHTML = '<p>No variant selected.</p>';
+    return;
+  }
+  classifyVariantWithAcmg(variantKey).then(result => {
+    const firedCount = result.criteria.filter(c => c.fired).length;
+    detailHost.innerHTML = `
+      <section class="acmg-panel">
+        <div class="acmg-header">
+          <div class="acmg-title-wrap">
+            <div class="tab-headline">ACMG evidence</div>
+            <div class="acmg-variant mono">${result.variantKey}</div>
+          </div>
+          <span class="acmg-badge acmg-badge-${getAcmgBadgeTone(result.classification)}">${result.classification}</span>
+        </div>
+        <p class="acmg-summary">${firedCount} criteria fired. Composite score: ${result.points}.</p>
+        <div class="acmg-criteria-grid">
+          ${result.criteria.map(renderAcmgCriterionCard).join('')}
+        </div>
+        <footer class="acmg-provenance">
+          <strong>Provenance</strong>
+          <span>Annotator: ${result.provenance.annotator_name} ${result.provenance.annotator_version}</span>
+          <span>Bundle: ${result.provenance.resource_bundle_version}</span>
+          <span>Ruleset: ${result.provenance.acmg_ruleset_version}</span>
+          <span>Transcript policy: ${result.provenance.transcript_policy_version}</span>
+        </footer>
+      </section>
+    `;
+  }).catch(error => {
+    detailHost.innerHTML = `<p>Unable to compute ACMG evidence: ${error?.message || 'Unknown error'}.</p>`;
+  });
+}
+
 function renderInheritanceTab(detailHost) {
   const variantKey = state.selectedVariantRow?.variant || 'No variant selected';
   const familyContext = getVariantScopedData(state.data.family, state.selectedVariantRow?.variant) || {};
@@ -5403,6 +5792,9 @@ function renderPredictionTab() {
   if (tab.id === 'inheritance') {
     metricsHost.innerHTML = '';
     renderInheritanceTab(detailHost);
+  } else if (tab.id === 'acmg') {
+    metricsHost.innerHTML = '';
+    renderAcmgTab(detailHost);
   } else if (tab.id === 'igv') {
     metricsHost.innerHTML = '';
     renderIgvTab(detailHost);
