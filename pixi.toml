@@ -1,0 +1,11 @@
+[workspace]
+authors = ["Zhijian Yu <yuzhijian@outlook.com>"]
+channels = ["conda-forge", "bioconda"]
+name = "VariantsViewer"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+ensembl-vep = ">=115.2,<116"
